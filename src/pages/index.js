@@ -1,4 +1,5 @@
 import * as React from "react"
+import '../sass/styles.scss';
 
 // markup
 const IndexPage = () => {
