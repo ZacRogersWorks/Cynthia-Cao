@@ -7,9 +7,6 @@ import PlayOrPause from './PlayOrPause'
 
 function AudioPlayer({ src, title }) {
   const ref = useRef(null);
-  const progressBarRef = useRef(null)
-  const bufferBarRef = useRef(null)
-  const progBarContainerRef = useRef(null)
 
   // State
   const [duration, setDuration] = useState(null)
@@ -19,7 +16,7 @@ function AudioPlayer({ src, title }) {
   const [isMuted, setIsMuted] = useState(false)
 
   // AUDIO TAG EVENT HANDLERS
-  const handleDurationChange = (e) => {
+  const handleDurationChange = () => {
     if (ref.current) {
       setDuration(ref.current.duration)
     }
@@ -34,36 +31,14 @@ function AudioPlayer({ src, title }) {
     setIsMediaLoaded(false)
   }
 
-  // Seeking
-  function seek(time) {
-    // Move playhead to correct pos
-    ref.current.currentTime = time
-  }
-
-  const handleSeekClick = (e) => {
-    // Calculate normalized position
-    const progBar = progBarContainerRef.current
-
-    let clickPosition = ((e.pageX - progBar.offsetLeft) / progBar.offsetWidth)
-
-    let clickTime = parseFloat(clickPosition * ref.current.duration)
-
-    console.log('clickPosition', clickPosition)
-    console.log('clickTime', clickTime)
-    console.log('clientX', e.clientX)
-    console.log('offsetLeft', progBar.offsetLeft)
-    console.log('offsetWidth', progBar.offsetWidth)
-
-    if (ref.current) {
-      ref.current.currentTime = clickTime
-    }
-  }
-
   // Load song on mount
   useEffect(() => {
-    ref.current.src = src
-    ref.current.title = title
-    ref.current.load()
+    const audio = ref.current
+    if (audio) {
+      audio.src = src
+      audio.title = title
+      audio.load()
+    }
   }, [src, title])
 
   /* Manage Play/Pause State */
@@ -72,9 +47,6 @@ function AudioPlayer({ src, title }) {
       const audio = ref.current
       audio.play()
         .then(_ => {
-          // TODO: update mediaSession
-          // navigator.mediaSession.playbackState = 'playing'
-          // updateMetadata()
         })
         .catch(console.error)
     }, []
@@ -84,16 +56,8 @@ function AudioPlayer({ src, title }) {
     const audio = ref.current
     if (audio.src && !audio.paused) {
       audio.pause()
-      // navigator.mediaSession.playbackState = 'paused'
     }
   }
-
-  const handleToggleMute = () => {
-    const audio = ref.current
-    audio.muted = !audio.muted
-    setIsMuted((prevState) => !prevState)
-  }
-
 
   useEffect(() => {
     if (isMediaLoaded) {
@@ -109,70 +73,90 @@ function AudioPlayer({ src, title }) {
 
   const handleSliderSeek = (e) => {
     const value = e.target.value
-    setCurrentTime(value)
-    if (ref.current) {
-      ref.current.currentTime = value
+    const audio = ref.current
+
+    if (audio) {
+      audio.currentTime = value
+      setCurrentTime(value)
     }
   }
 
   const handleTimeUpdate = () => {
     // This handler is called every 250ms
-
-    // Update State
     let currentTime = ref.current.currentTime
     setCurrentTime(currentTime)
+  }
 
-    // Update Progress Bar 
-    const percentage = parseFloat((currentTime / duration) * 100)
-    if (progressBarRef.current) {
-      progressBarRef.current.style.width = `${percentage}%`
+  const toggleIsPlaying = () => setIsPlaying((prevState) => !prevState)
+  const toggleIsMuted = () => {
+    const audio = ref.current
+    if (audio) {
+      audio.muted = !audio.muted
+      setIsMuted((prevState) => !prevState)
+    }
+  }
+
+
+  const handleKeyBoard = (e, action) => {
+    if (e.code === 'Space') {
+      if (action === 'play') {
+        toggleIsPlaying()
+      } else if (action === 'mute') {
+        toggleIsMuted()
+      }
     }
   }
 
   return (
-    <>
-      <div className="rainbow-circle__container">
-        <div className="rainbow-circle"></div>
-        <div className="rainbow-circle__inner">
-          <div className='player__controls'>
-            <div className='player__row'>
-              <div className='player__playbtn'>
-                <PlayOrPause setIsPlaying={setIsPlaying} playing={isPlaying} />
-              </div>
-              <div className='player__duration'>
-                <span>{secondsToTime(currentTime)}</span>
-                <span>{secondsToTime(duration)}</span>
-              </div>
+    <div className="rainbow-circle__container">
+      <div className="rainbow-circle"></div>
+      <div className="rainbow-circle__inner">
+        <div className='player__controls'>
+          <div className='player__row'>
+            <div
+              onKeyDown={(e) => handleKeyBoard(e, 'play')}
+              onClick={toggleIsPlaying}
+              tabIndex={0}
+              className='player__playbtn'
+            >
+              <PlayOrPause playing={isPlaying} />
             </div>
-            <div className='player__row'>
-              {/* <ProgressBar onClick={handleSeekClick} progBarContainerRef={progBarContainerRef} bufferBarRef={bufferBarRef} progressBarRef={progressBarRef} /> */}
-
-              <div className="player__progress">
-                <input type="range"
-                  onChange={handleSliderSeek}
-                  onClick={handleSliderSeek}
-                  name="progressbar" min="0" value={currentTime} max={duration} />
-              </div>
-
-
-              <div className='player__mutebtn'>
-                <MuteOrVolume handleToggleMute={handleToggleMute} muted={isMuted} />
-              </div>
+            <div className='player__duration'>
+              <span>{secondsToTime(currentTime)}</span>
+              <span>/</span>
+              <span>{secondsToTime(duration)}</span>
             </div>
           </div>
-          <audio
-            ref={ref}
-            onCanPlay={handleCanPlay}
-            onLoadStart={handleLoadStart}
-            onDurationChange={handleDurationChange}
-            onTimeUpdate={handleTimeUpdate}
-          >
-            <source type="audio/mpeg" />
-            <code>audio</code> unsupported.
-          </audio>
+          <div className='player__row'>
+            <ProgressBar
+              onChange={handleSliderSeek}
+              onClick={handleSliderSeek}
+              name="progressbar"
+              min={0}
+              value={parseInt(currentTime, 10)}
+              max={duration || 0}
+            />
+            <div
+              onKeyDown={(e) => handleKeyBoard(e, 'mute')}
+              onClick={toggleIsMuted}
+              tabIndex={0}
+              className='player__mutebtn'
+            >
+              <MuteOrVolume muted={isMuted} />
+            </div>
+          </div>
         </div>
+        <audio
+          ref={ref}
+          onCanPlay={handleCanPlay}
+          onLoadStart={handleLoadStart}
+          onDurationChange={handleDurationChange}
+          onTimeUpdate={handleTimeUpdate}
+        >
+          <code>audio</code> unsupported.
+        </audio>
       </div>
-    </>
+    </div>
   )
 }
 
