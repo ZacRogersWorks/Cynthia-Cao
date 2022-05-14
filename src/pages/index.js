@@ -5,12 +5,15 @@ import PhotoWall from '../components/PhotoWall'
 import Video from '../components/Video'
 
 import { PRESS_LINKS } from "../components/PRESS_LINKS";
+import HeroBackground from "../components/HeroBackground";
+import FooterBackground from "../components/FooterBackground";
 
 // markup
 const IndexPage = () => {
   return (
     <>
       <main className="main">
+        <HeroBackground />
         <section className="row">
           <h1 className="header--primary">Hi, my name is <span className="rainbow">Cynthia</span>🦄</h1>
           <p className="subheader--primary">I am an artist, investor, entrepreneur - that crazy builder in Web3 Music</p>
@@ -138,6 +141,7 @@ const IndexPage = () => {
         </section>
       </main>
       <footer>
+        <FooterBackground />
         <p>
           &copy;2022 ccisdreaming. All right reserved.
         </p>
