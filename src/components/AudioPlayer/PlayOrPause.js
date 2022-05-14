@@ -6,8 +6,8 @@ import PlayIcon from './Icons/PlayIcon'
 function PlayOrPause({ playing, setIsPlaying }) {
   return (
     <>
-      {playing ? <PauseIcon setIsPlaying={setIsPlaying} size={20} color="black" />
-        : <PlayIcon setIsPlaying={setIsPlaying} size={20} color="black" />}
+      {playing ? <PauseIcon size={20} color="black" />
+        : <PlayIcon size={20} color="black" />}
     </>
   )
 }

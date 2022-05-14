@@ -2,11 +2,11 @@ import React from 'react'
 import VolumeIcon from './Icons/VolumeIcon'
 import PropTypes from 'prop-types'
 import MuteIcon from './Icons/MuteIcon'
-function MuteOrVolume({muted, handleToggleMute}) {
+function MuteOrVolume({muted}) {
   return (
     <>
-      {muted ? <MuteIcon handleToggleMute={handleToggleMute} size={16} color="black" />
-      : <VolumeIcon handleToggleMute={handleToggleMute} size={16} color="black" />}
+      {muted ? <MuteIcon size={13} color="black" />
+      : <VolumeIcon size={13} color="black" />}
     </>
   )
 }
