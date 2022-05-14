@@ -1,19 +1,24 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 
-function ProgressBar({ onClick, progBarContainerRef, progressBarRef, bufferBarRef }) {
+function ProgressBar({ onClick, onChange, name, min, value, max }) {
   return (
-    <>
-      <div
+    <div className="player__progress">
+      <input type="range"
+        onChange={onChange}
         onClick={onClick}
-        role="progressbar"
-        tabIndex={0}
-        ref={progBarContainerRef}
-        className="player__progress"
-      >
-        <div ref={progressBarRef} className="player__bar"></div>
-      </div>
-    </>
+        name={name} min={min} value={value} max={max} />
+    </div>
   )
+}
+
+ProgressBar.propTypes = {
+  onClick: PropTypes.func.isRequired,
+  onChange: PropTypes.func.isRequired,
+  name: PropTypes.string.isRequired,
+  min: PropTypes.number.isRequired,
+  max: PropTypes.number,
+  value: PropTypes.number.isRequired,
 }
 
 export default ProgressBar
