@@ -1,0 +1,54 @@
+$rainbow-circle-gradient: linear-gradient(45deg, #b827fc 0%, #2c90fc 25%, #b8fd33 50%, #fec837 75%, #fd1892 100%);
+
+$rainbow-circle-bg-color: #fff;
+
+.rainbow-circle {
+  position: relative;
+  width: 160px;
+  height: 160px;
+  border-radius: 50%;
+  background:$rainbow-circle-gradient;
+  filter: blur(2px);
+  cursor: pointer;
+  animation: rotate 8s linear infinite;
+}
+
+@keyframes rotate {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+
+ .rainbow-circle::before {
+  content:"";
+  position: absolute;
+  inset: 4px;
+  background-color: $rainbow-circle-bg-color;
+  border-radius: 50%;
+  z-index: 2;
+}
+
+.rainbow-circle::after {
+  content:"";
+  position: absolute;
+  inset: 0px;
+  background:$rainbow-circle-gradient;
+  border-radius: 50%;
+  z-index: 1;
+  filter: blur(10px);
+}
+
+.rainbow-circle__container {
+  position: relative;
+}
+.rainbow-circle__inner {
+  position:absolute;
+  top:50%;
+  left:50%;
+  transform: translate(-50%, -50%);
+  background-color: $rainbow-circle-bg-color;
+}
