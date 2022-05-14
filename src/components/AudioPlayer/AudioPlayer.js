@@ -43,7 +43,7 @@ function AudioPlayer({ src, title }) {
   const handleSeekClick = (e) => {
     // Calculate normalized position
     const progBar = progBarContainerRef.current
-    
+
     let clickPosition = ((e.pageX - progBar.offsetLeft) / progBar.offsetWidth)
 
     let clickTime = parseFloat(clickPosition * ref.current.duration)
@@ -88,6 +88,13 @@ function AudioPlayer({ src, title }) {
     }
   }
 
+  const handleToggleMute = () => {
+    const audio = ref.current
+    audio.muted = !audio.muted
+    setIsMuted((prevState) => !prevState)
+  }
+
+
   useEffect(() => {
     if (isMediaLoaded) {
       if (isPlaying) {
@@ -98,6 +105,15 @@ function AudioPlayer({ src, title }) {
     }
 
   }, [isPlaying, isMediaLoaded, playAudioElement])
+
+
+  const handleSliderSeek = (e) => {
+    const value = e.target.value
+    setCurrentTime(value)
+    if (ref.current) {
+      ref.current.currentTime = value
+    }
+  }
 
   const handleTimeUpdate = () => {
     // This handler is called every 250ms
@@ -115,7 +131,6 @@ function AudioPlayer({ src, title }) {
 
   return (
     <>
-     
       <div className="rainbow-circle__container">
         <div className="rainbow-circle"></div>
         <div className="rainbow-circle__inner">
@@ -130,14 +145,18 @@ function AudioPlayer({ src, title }) {
               </div>
             </div>
             <div className='player__row'>
-            <ProgressBar onClick={handleSeekClick} progBarContainerRef={progBarContainerRef} bufferBarRef={bufferBarRef} progressBarRef={progressBarRef} />
-             
-              {/* <input type="range"
-              onChange={null}
-              name="progressbar" min="0" value={currentTime} max={duration} /> */}
+              {/* <ProgressBar onClick={handleSeekClick} progBarContainerRef={progBarContainerRef} bufferBarRef={bufferBarRef} progressBarRef={progressBarRef} /> */}
+
+              <div className="player__progress">
+                <input type="range"
+                  onChange={handleSliderSeek}
+                  onClick={handleSliderSeek}
+                  name="progressbar" min="0" value={currentTime} max={duration} />
+              </div>
+
 
               <div className='player__mutebtn'>
-                <MuteOrVolume setIsMuted={setIsMuted} muted={isMuted} />
+                <MuteOrVolume handleToggleMute={handleToggleMute} muted={isMuted} />
               </div>
             </div>
           </div>
