@@ -1,0 +1,32 @@
+.hero--subsection {
+   margin: 3rem 0;
+  }
+
+.hero--subsection_col {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  i {
+    font-size: 3rem;
+  }
+
+  p {
+    text-align: center;
+  }
+
+  a {
+    padding: 1rem;
+    font-size: 1.5rem;
+    text-decoration: none;
+    color: black;
+    border: 1px solid black;
+    border-radius: 60%;
+  }
+}
+
+.hero--subsection_col:first-of-type {
+  margin-bottom: 3rem;
+
+  
+}
