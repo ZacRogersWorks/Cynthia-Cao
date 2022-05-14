@@ -1,0 +1,132 @@
+@use '../components/rainbow-circle';
+
+$box-shadow-color: #a9a9a9;
+$box-shadow-accent-color: #0d0d0d;
+
+$thumb-border-color: #000000;
+$thumb-bg-color: #ffffff;
+$thumb-width: 5px;
+$thumb-height: 5px;
+$thumb-border-radius: 50%;
+$thumb-margin-top: 0;
+
+
+$track-height: 5px;
+$track-width:100%;
+$track-bg-color: lightgray;
+$track-bg-color-focus: #8d8d8d;
+$track-bg-color-focus-upper: #686868;
+$track-border-color: #010101;
+$track-border-radius:6px;
+$runnable-track-bg-color: rainbow-circle.$rainbow-circle-gradient;
+$runnable-track-bg-transparency: 20%;
+$runnable-track-bg-size:200%;
+
+input[type=range] {
+  -webkit-appearance: none;
+  margin:10px 6px;
+  width: 100%;
+  // max-width: 75px;
+}
+
+input[type=range]:focus {
+  outline: none;
+}
+
+input[type=range]::-webkit-slider-runnable-track {
+  width: $track-width;
+  height: $track-height;
+  background: $track-bg-color;
+  border-radius:$track-border-radius;
+  cursor: pointer;
+  border: none;
+}
+
+input[type=range]::-webkit-slider-thumb {
+  box-shadow: 1px 0px 0px $box-shadow-color, 0px 0px 1px $box-shadow-accent-color;
+  height:$thumb-height;
+  width:  $thumb-width;
+  border-radius: $thumb-border-radius;
+  background: $thumb-bg-color;
+  -webkit-appearance: none;
+  margin-top: $thumb-margin-top;
+  cursor: pointer;
+  border: none;
+}
+
+input[type=range]:focus::-webkit-slider-runnable-track {
+  background: $runnable-track-bg-color;
+  background-size: $runnable-track-bg-size;
+  opacity: $runnable-track-bg-transparency;
+}
+
+input[type=range]::-moz-range-track {
+  width: $track-width;
+  height: $track-height;
+  background: $track-bg-color;
+  border-radius:$track-border-radius;
+  cursor: pointer;
+}
+
+input[type=range]:focus::-moz-range-track {
+  background: $runnable-track-bg-color;
+  background-size: $runnable-track-bg-size;
+  opacity: $runnable-track-bg-transparency;
+}
+
+input[type=range]:focus::-moz-range-thumb {
+  opacity: 100%;
+}
+
+input[type=range]::-moz-range-thumb {
+  box-shadow: 1px 0px 0px $box-shadow-color, 0px 0px 1px $box-shadow-accent-color;
+  height:$thumb-height;
+  width:  $thumb-width;
+  border-radius: $thumb-border-radius;
+  border:none;
+  background: $thumb-bg-color;
+  -webkit-appearance: none;
+  margin-top: $thumb-margin-top;
+  cursor: pointer;
+}
+
+input[type=range]::-ms-track {
+  background: transparent;
+  border-color: transparent;
+  border-width: 0 0;
+  color: transparent;
+
+  width: $track-width;
+  height: $track-height;
+  cursor: pointer;
+}
+
+input[type=range]::-ms-fill-lower {
+  background: $track-bg-color;
+  border-radius:$track-border-radius;
+}
+
+input[type=range]::-ms-fill-upper {
+  background: $track-bg-color;
+  border-radius:$track-border-radius;
+}
+
+input[type=range]::-ms-thumb {
+  box-shadow: 1px 0px 0px $box-shadow-color, 0px 0px 1px $box-shadow-accent-color;
+  height:$thumb-height;
+  width:  $thumb-width;
+  border: none;
+  border-radius: $thumb-border-radius;
+  background: $thumb-bg-color;
+  -webkit-appearance: none;
+  margin-top: $thumb-margin-top;
+  cursor: pointer;
+}
+
+input[type=range]:focus::-ms-fill-lower {
+  background: $track-bg-color-focus;
+}
+
+input[type=range]:focus::-ms-fill-upper {
+  background: $track-bg-color-focus-upper;
+}
