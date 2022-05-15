@@ -1,24 +1,21 @@
 @use 'colors';
 
 h1 {
-  font-size: 3rem;
+  font-size: 2.5rem;
   font-weight: bolder;
   line-height: 1em;
 }
 
 h2 {
-  font-size: 2.5rem;
-  font-weight: bolder;
-  margin: 0 auto 2rem;
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin-top: 2.5rem;
+  margin-bottom: 2.5rem;
 }
 
 h3 {
-  font-size: 1.5rem;
-    margin-bottom: 1rem;
-}
-
-p {
   font-size: 1.25rem;
+  margin-bottom: 1rem;
 }
 
 .heading-container {
@@ -31,7 +28,7 @@ p {
   background-size: 150%;
   background-position: left;
   background-clip: text;
-  color:transparent;
+  color: transparent;
   animation: backgroundanimation 2s ease-in-out infinite alternate;
 }
 
@@ -39,8 +36,8 @@ p {
   0% {
     background-position: left;
   }
+
   100% {
     background-position: right;
   }
 }
-

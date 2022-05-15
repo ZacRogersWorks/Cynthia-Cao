@@ -3,7 +3,8 @@ body {
 }
 
 section {
-  padding: 4rem 1rem 0;
+  margin-left:1rem;
+  margin-right:1rem;
 }
 
 ul {
@@ -14,11 +15,4 @@ ul {
 
 footer {
   position: relative;
-}
-
-.subheader--primary {
-  font-size: 2rem;
-  font-weight: bold;
-  line-height: 2rem;
-  margin-top: 1rem;
 }

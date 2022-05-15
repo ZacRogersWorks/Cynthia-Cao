@@ -1,5 +1,5 @@
 .hero--subsection {
-   margin: 3rem 0;
+   margin: 1rem 0;
   }
 
 .hero--subsection_col {
@@ -7,8 +7,8 @@
   flex-direction: column;
   align-items: center;
 
-  i {
-    font-size: 3rem;
+  span {
+    font-size: 2.25rem;
   }
 
   p {
@@ -16,17 +16,14 @@
   }
 
   a {
-    padding: 1rem;
-    font-size: 1.5rem;
     text-decoration: none;
     color: black;
-    border: 1px solid black;
-    border-radius: 60%;
+    &:hover {
+      font-weight: 600;
+    }
   }
 }
 
 .hero--subsection_col:first-of-type {
   margin-bottom: 3rem;
-
-  
 }

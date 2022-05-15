@@ -4,7 +4,6 @@
 
     :not(:last-child) {
         margin-bottom: 1rem;
-        
     }
 
     input,textarea {
@@ -21,16 +20,17 @@
         height: 8rem;
         padding: 1rem;
     }
+}
 
-    input[type="submit"] {
-        display: inline-flex;
-        justify-content: center;
-        align-items: center;
-        font-size: 1.25rem;
-        color: white;
-        background-color: black;
-        border-radius: 1rem;
-       
-    }
+.btn {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1rem;
+    color: white;
+    background-color: black;
+    border-radius: 4rem;
+    padding: 0.65rem;
+    border:none;
 }
 

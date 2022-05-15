@@ -15,8 +15,8 @@ const IndexPage = () => {
       <main className="main">
         <HeroBackground />
         <section className="row">
-          <h1 className="header--primary">Hi, my name is <span className="rainbow">Cynthia</span>🦄</h1>
-          <p className="subheader--primary">I am an artist, investor, entrepreneur - that crazy builder in Web3 Music</p>
+          <h1 className="header--primary">Hi, my name is <span className="rainbow">Cynthia</span>🦄
+          <br />I am an artist, investor, entrepreneur that crazy builder in Web3 Music</h1>
           <div className="row">
             <div className="col about--text">
               <p>As a music industry professional for 6 years, I have worked in event planning, artist management, and as a musician and artist myself.</p>
@@ -50,7 +50,7 @@ const IndexPage = () => {
           </div>
           <div className="row hero--subsection">
             <div className="col hero--subsection_col">
-              <i>✨</i>
+              <span>✨</span>
               <h3>
                 My Interests
               </h3>
@@ -59,15 +59,15 @@ const IndexPage = () => {
               </p>
             </div>
             <div className="col hero--subsection_col">
-              <i>💭</i>
+              <span>💭</span>
               <h3>
                 My Thoughts
               </h3>
-              <a className="medium-link" href="https://medium.com/@ccisdreaming" target="_blank">Medium Articles</a>
+              <a href="https://medium.com/@ccisdreaming" target="_blank">https://medium.com/@ccisdreaming</a>
             </div>
           </div>
         </section>
-        <section className="photo-section">
+        <section className="media-section">
           <div className="heading-container">
             <h2 className="header--primary">Media</h2>
           </div>
@@ -76,7 +76,7 @@ const IndexPage = () => {
         <section className="speaking-section row">
           <div className="col">
             <div className="heading-container">
-              <h3>Speaking</h3>
+            <h2 className="header--primary">Speaking</h2>
             </div>
             <Video />
             <div className="row audio-players">
@@ -94,7 +94,7 @@ const IndexPage = () => {
         <section className="press-section">
           <div className="col">
             <div className="heading-container">
-              <h3 className="header--primary">Press</h3>
+              <h2 className="header--primary">Press</h2>
 
             </div>
             <ul className="press-links">
@@ -113,16 +113,16 @@ const IndexPage = () => {
         <section className="contact-section row">
           <div className="col contact-column">
             <div className="heading-container">
-              <h3 className="header--primary">Contact Me</h3>
+              <h2 className="header--primary">Contact Me</h2>
             </div>
             <form className="contact-form">
               <input type="text" id="name" name="name" placeholder="Enter Name" required></input>
               <input type="email" id="email" name="email" placeholder="Enter Email" required></input>
               <textarea id="message" name="message" placeholder="Enter Message..."></textarea>
-              <input type="submit"/>
+              <button className="btn" type="submit">Submit</button>
             </form>
             <div className="social-links-container">
-              <ul className="social-icons">
+              <ul className="social-icons social-icons--footer">
                 <svg className="svg-twitter" xmlns="http://www.w3.org/2000/svg" width="32" height="25.99" viewBox="0 0 32 25.99">
                   <path id="Icon_awesome-twitter" data-name="Icon awesome-twitter" d="M28.711,9.858c.02.284.02.569.02.853,0,8.67-6.6,18.66-18.66,18.66A18.533,18.533,0,0,1,0,26.427a13.568,13.568,0,0,0,1.584.081,13.135,13.135,0,0,0,8.142-2.8,6.57,6.57,0,0,1-6.132-4.548,8.27,8.27,0,0,0,1.239.1,6.936,6.936,0,0,0,1.726-.223A6.559,6.559,0,0,1,1.3,12.6v-.081a6.6,6.6,0,0,0,2.964.832,6.568,6.568,0,0,1-2.03-8.772,18.642,18.642,0,0,0,13.523,6.863,7.4,7.4,0,0,1-.162-1.5,6.565,6.565,0,0,1,11.35-4.487,12.912,12.912,0,0,0,4.162-1.584,6.541,6.541,0,0,1-2.883,3.614A13.148,13.148,0,0,0,32,6.467a14.1,14.1,0,0,1-3.289,3.391Z" transform="translate(0 -3.381)" />
                 </svg>
@@ -141,7 +141,7 @@ const IndexPage = () => {
         </section>
       </main>
       <footer>
-        <FooterBackground />
+        {/* <FooterBackground /> */}
         <p>
           &copy;2022 ccisdreaming. All right reserved.
         </p>

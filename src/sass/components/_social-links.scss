@@ -1,18 +1,28 @@
 .social-links-container {
-    width: 100%;
-    display: flex;
-    justify-content: center;
+  width: 100%;
+  display: flex;
+  justify-content: center;
 }
 
 .social-icons {
+  max-width: 160px;
+  margin: 1.25rem 0;
+  border: solid 1px black;
+  border-radius: 80%;
+  padding-inline-start: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0 0.9rem;
+
+  &--footer {
+    max-width: 145px;
+    border: none;
+    border-radius: 0;
+    padding: 0;
     margin: 1.5rem 0;
-    width: 66%;
-    border: solid 1px black;
-    border-radius: 80%;
-    padding-inline-start: 0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+
+  }
 
   svg[class^="svg"] {
     width: 24px;
