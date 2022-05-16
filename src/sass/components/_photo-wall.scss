@@ -1,11 +1,14 @@
 @use '../base/mixins';
+@use '../components/rainbow-circle';
 
 .photowall {
     &__img {
         transition: all .5s ease-in-out;
         filter: grayscale(10%);
         border-radius: 8px; // remove this if go circlular
-        &:hover,&:active {
+
+        &:hover,
+        &:active {
             filter: grayscale(0);
             transform: scale(1.1);
         }
@@ -13,48 +16,56 @@
 
     &__container {
         max-width: 350px;
-        min-height: 575px; // 495 for circle
+        min-height: 455px; // 495 for circle
         margin: 0 auto;
-        margin-top:2rem;
+        margin-top: 4rem;
         position: relative;
         width: 100%;
         display: flex;
         align-items: center;
         justify-content: center;
         margin-bottom: 4rem;
+
+        &::after {
+            content: '';
+            position: absolute;
+            right: 0;
+            width: 290px;
+            height: 290px;
+            border-radius: 50%;
+            background: rainbow-circle.$rainbow-circle-gradient;
+            transform: rotate(86deg);
+            filter: blur(30px);
+        }
     }
 
     &__photo {
         position: absolute;
         width: 100%;
-        &:hover{
+
+        &:hover {
             z-index: 100;
         }
+
         // clip-path: circle(); // turn this on if you want circle imgs
     }
 
     // Cochella
     &__1 {
         max-width: 300px;
-        top: 40px;
-        left: -105px; // -45px if circular
         z-index: 2;
     }
 
 
     // YouTube Shorts
     &__2 {
-        top: -30px;
-        left: 1%;
         max-width: 65%;
         z-index: 3;
-
+        top: 0;
     }
 
     // Draper Grad
     &__3 {
-        top: -10px;
-        right: -10%;
         max-width: 240px;
         z-index: 1;
     }
@@ -62,8 +73,6 @@
 
     // Happy hour
     &__4 {
-        top: 280px; // 230 for circle
-        right: -80px; // -50 for circle
         width: 250px;
         z-index: 4;
     }

@@ -1,10 +1,29 @@
+@use '../base/colors';
+
 body {
   font-family: Arial, Helvetica, sans-serif;
+
 }
 
-section {
-  margin-left:1rem;
-  margin-right:1rem;
+.main {
+  position: relative;
+  overflow: hidden;
+
+  &::before {
+    content: "";
+    width: 60%;
+    height: 25%;
+    background: colors.$bg-linear-gradient-top;
+    background-size: 100%;
+    position: absolute;
+    top: -5%;
+    right: -10%;
+    opacity: 0.9;
+    border-radius: 50%;
+    z-index: -100;
+    filter: blur(100px);
+    transform: rotate(-45deg);
+  }
 }
 
 ul {

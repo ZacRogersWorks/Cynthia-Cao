@@ -113,14 +113,14 @@ function AudioPlayer({ src, title }) {
       <div className="rainbow-circle__inner">
         <div className='player__controls'>
           <div className='player__row'>
-            <div
+            <button
               onKeyDown={(e) => handleKeyBoard(e, 'play')}
               onClick={toggleIsPlaying}
               tabIndex={0}
-              className='player__playbtn'
+              className='player__btn'
             >
               <PlayOrPause playing={isPlaying} />
-            </div>
+            </button>
             <div className='player__duration'>
               <span>{secondsToTime(currentTime)}</span>
               <span>/</span>
@@ -136,18 +136,19 @@ function AudioPlayer({ src, title }) {
               value={parseInt(currentTime, 10)}
               max={duration || 0}
             />
-            <div
+            <button
               onKeyDown={(e) => handleKeyBoard(e, 'mute')}
               onClick={toggleIsMuted}
               tabIndex={0}
-              className='player__mutebtn'
+              className='player__btn'
             >
               <MuteOrVolume muted={isMuted} />
-            </div>
+            </button>
           </div>
         </div>
         <audio
           ref={ref}
+          preload="metadata"
           onCanPlay={handleCanPlay}
           onLoadStart={handleLoadStart}
           onDurationChange={handleDurationChange}

@@ -1,4 +1,11 @@
 @use 'colors';
+@use '../components/rainbow-circle';
+
+::selection {
+  background-color:#fddbdf;
+  color:white;
+}
+
 
 h1 {
   font-size: 2.5rem;
@@ -9,8 +16,8 @@ h1 {
 h2 {
   font-size: 1.5rem;
   font-weight: bold;
-  margin-top: 2.5rem;
-  margin-bottom: 2.5rem;
+  margin-top: 3.75rem;
+  margin-bottom: 2rem;
 }
 
 h3 {
@@ -18,9 +25,25 @@ h3 {
   margin-bottom: 1rem;
 }
 
+.mt-0 {
+  margin-top: 0;
+}
+
+.mt-1 {
+  margin-top: 1rem;
+}
+
 .heading-container {
   display: flex;
   justify-content: center;
+}
+
+.dropcap {
+  float: left;
+  font-size: 300%;
+  color: #242424;
+  margin: -11px 7px -13px 0;
+  font-weight: bolder;
 }
 
 .rainbow {
@@ -30,6 +53,19 @@ h3 {
   background-clip: text;
   color: transparent;
   animation: backgroundanimation 2s ease-in-out infinite alternate;
+}
+
+.color-text {
+  &:active,
+  &:hover {
+    text-shadow: 1px -4px 0px rgb(67, 67, 67);
+    animation: backgroundanimation 2s ease-in-out infinite alternate;
+    background-image: rainbow-circle.$rainbow-circle-gradient;
+    background-size: 250%;
+    background-position: left;
+    background-clip: text;
+    color: transparent;
+  }
 }
 
 @keyframes backgroundanimation {

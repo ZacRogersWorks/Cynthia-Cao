@@ -1,0 +1,14 @@
+@use '../base/vars';
+
+.speaking-section {
+  display: flex;
+  flex-direction: column;
+  margin-left: vars.$left-margin;
+  margin-right: vars.$right-margin;
+
+  &__audio-players {
+    display: flex;
+    flex-direction: column;
+    gap:2.25rem;
+  }
+}

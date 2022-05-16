@@ -1,4 +1,11 @@
-.press-links{
+@use '../base/vars';
+
+.press-section {
+    margin-left: vars.$left-margin;
+    margin-right: vars.$right-margin;
+}
+
+.press-links {
 
     :not(:last-child) {
         margin-bottom: 1.5rem;
@@ -8,12 +15,12 @@
         text-align: center;
     }
 
-    li > a {
+    li>a {
         font-size: 1rem;
         font-weight: 300;
         color: black;
         text-decoration: none;
-       
+        transition: all 250ms ease-in-out;
+        position: relative;
     }
 }
-

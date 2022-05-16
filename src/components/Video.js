@@ -20,7 +20,7 @@ const Video = () => {
             className="video-player"
             videoId={"YpoJic6XeMs"}
             />
-            <p>Howie Mendel Podcast</p>
+            <p className='player__caption'>Howie Mendel Podcast</p>
         </div>
     )
 }

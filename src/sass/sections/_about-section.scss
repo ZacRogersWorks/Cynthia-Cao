@@ -1,0 +1,74 @@
+@use '../base/vars';
+@use '../base/colors';
+
+.about {
+  margin-top: vars.$top-margin;
+  margin-left: vars.$left-margin;
+  margin-right: vars.$right-margin;
+
+  &__text {
+    margin-top: 3rem;
+
+    p {
+      margin-top: 1rem;
+    }
+  }
+}
+
+.quote {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  margin-top: 2.5rem;
+  margin-bottom: 1rem;
+  margin-left: 1rem;
+
+  p {
+    text-align: right;
+    font-style: italic;
+    font-weight: bold;
+    line-height: 1.1rem;
+  }
+
+  span {
+    font-style: normal;
+    padding-left: 4px;
+  }
+}
+
+.interests {
+  margin: 1rem 0;
+
+  &__header {
+    border: 2px solid black;
+    border-radius: 3rem;
+    padding: 1px 3px;
+  }
+
+  &__col {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    &:first-of-type {
+      margin-bottom: 3rem;
+    }
+
+    span {
+      font-size: 2.25rem;
+    }
+
+    p {
+      text-align: center;
+    }
+
+    a {
+      text-decoration: none;
+      color: black;
+
+      &:hover {
+        font-weight: 600;
+      }
+    }
+  }
+}
