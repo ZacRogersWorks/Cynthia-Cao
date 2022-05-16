@@ -3,7 +3,7 @@
 
 .photowall {
     &__img {
-        box-shadow: 0px 0px 15px rgba(128, 128, 128, 0.5);
+        box-shadow: 0px 0px 15px rgba(128, 128, 128, 0.2);
         transition: all .5s ease-in-out;
         filter: grayscale(10%);
         border-radius: 6px; // remove this if go circlular
