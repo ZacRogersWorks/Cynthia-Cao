@@ -1,26 +1,37 @@
-import React, { useState } from 'react'
+import React, { useEffect, useRef } from 'react'
 import YouTube from 'react-youtube'
 
 import VideoOverlay from './VideoOverlay'
 
 const Video = () => {
-    const [clickPlay, setClickPlay] = useState(false)
+    const videoPlayerRef = useRef(null)
+    const overlayRef = useRef(null)
 
-    const opts = {
+    const opts = {}
 
-    }
     const playVideo = (e) => {
-        e.target.styles.opacity = 0;
+        overlayRef.current.style.opacity = 0;
+        overlayRef.current.style.zIndex= -2;
+        videoPlayerRef.current.internalPlayer.playVideo();
+    }
+
+    const pauseVideo = () => {
+        console.log(overlayRef)
+        overlayRef.current.style.opacity = 1;
+        overlayRef.current.style.zIndex = 2;
     }
 
     return (
+        <div className="video">
         <div className="video-container">
-            <VideoOverlay playVideo={playVideo} />
-            <YouTube 
+            <VideoOverlay playVideo={playVideo} ref={overlayRef} />
+            <YouTube ref={videoPlayerRef}
             className="video-player"
             videoId={"YpoJic6XeMs"}
-            />
-            <p className='player__caption'>Howie Mendel Podcast</p>
+            onPause={() => pauseVideo()}
+            ></YouTube>
+        </div>
+        <p className='video-caption'>Howie Mendel Podcast</p>
         </div>
     )
 }
