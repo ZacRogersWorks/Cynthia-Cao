@@ -1,35 +1,79 @@
-.photowall-row{}
+@use '../base/mixins';
 
-.photowall-container {
-    position: relative;
-    height: 100vh;
+.photowall {
+    &__img {
+        transition: all .5s ease-in-out;
+        filter: grayscale(10%);
+        border-radius: 8px; // remove this if go circlular
+        &:hover,&:active {
+            filter: grayscale(0);
+            transform: scale(1.1);
+        }
+    }
+
+    &__container {
+        max-width: 350px;
+        min-height: 575px; // 495 for circle
+        margin: 0 auto;
+        margin-top:2rem;
+        position: relative;
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-bottom: 4rem;
+    }
+
+    &__photo {
+        position: absolute;
+        width: 100%;
+        &:hover{
+            z-index: 100;
+        }
+        // clip-path: circle(); // turn this on if you want circle imgs
+    }
+
+    // Cochella
+    &__1 {
+        max-width: 300px;
+        top: 40px;
+        left: -105px; // -45px if circular
+        z-index: 2;
+    }
+
+
+    // YouTube Shorts
+    &__2 {
+        top: -30px;
+        left: 1%;
+        max-width: 65%;
+        z-index: 3;
+
+    }
+
+    // Draper Grad
+    &__3 {
+        top: -10px;
+        right: -10%;
+        max-width: 240px;
+        z-index: 1;
+    }
+
+
+    // Happy hour
+    &__4 {
+        top: 280px; // 230 for circle
+        right: -80px; // -50 for circle
+        width: 250px;
+        z-index: 4;
+    }
 }
 
-div[class^="photowall_"] {
-    position: absolute;
-}
+@include mixins.sm {
+    .photowall {
+        &__2 {
+            max-width: 250px;
+        }
+    }
 
-.photowall_1 {
-    top: 0;
-    left: 0;
-}
-
-.photowall_2 {
-    width: 250px;
-    top: 50%;
-    left: 50%;
-    transform: translate( -20%, -60% );
-    z-index: 2;
-}
-
-.photowall_3 {
-    bottom: 0;
-    right: 0;
-}
-
-.photowall_4 {
-    width: 250px;
-    bottom: 5%;
-    left: 0;
-    transform: translateX(-20%)
 }
