@@ -9,6 +9,7 @@ import HeroBackground from "../components/HeroBackground";
 import FooterBackground from "../components/FooterBackground";
 import AudioPlayer from "../components/AudioPlayer/AudioPlayer";
 import SocialLinks from "../components/SocialLinks";
+import ContactForm from "../components/ContactForm";
 
 // markup
 const IndexPage = () => {
@@ -17,7 +18,7 @@ const IndexPage = () => {
       <main className="main">
         {/* <HeroBackground /> */}
         <section className="about">
-          <div className="about__sticky">
+          <div>
             <h1 className="header--primary">Hi, my name is <span className="rainbow">Cynthia</span>🦄
               <br />I am an artist, investor, entrepreneur that crazy builder in Web3 Music</h1>
           </div>
@@ -103,12 +104,7 @@ const IndexPage = () => {
           <div className="heading-container">
             <h2 className="header--primary">Contact me</h2>
           </div>
-          <form className="contact-form">
-            <input type="text" id="name" name="name" placeholder="Enter Name" required></input>
-            <input type="email" id="email" name="email" placeholder="Enter E-mail" required></input>
-            <textarea id="message" name="message" placeholder="Message..."></textarea>
-            <button className="btn" type="submit">Submit</button>
-          </form>
+          <ContactForm />
           <div className="social-links-container">
             <SocialLinks otherClasses="social-icons--footer" />
           </div>
