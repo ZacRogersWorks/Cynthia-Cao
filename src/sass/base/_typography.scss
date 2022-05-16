@@ -3,7 +3,7 @@
 
 ::selection {
   background-color:#fddbdf;
-  color:white;
+  color:rgb(98, 98, 98);
 }
 
 
@@ -58,7 +58,7 @@ h3 {
 .color-text {
   &:active,
   &:hover {
-    text-shadow: 1px -4px 0px rgb(67, 67, 67);
+    text-shadow: 0px -4px 0px rgb(67, 67, 67);
     animation: backgroundanimation 2s ease-in-out infinite alternate;
     background-image: rainbow-circle.$rainbow-circle-gradient;
     background-size: 250%;

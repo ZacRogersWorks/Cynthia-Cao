@@ -28,10 +28,11 @@
     height: 35px;
     transition: all 150ms ease;
 
-    &:hover {
+    &:hover,
+    &:focus {
       padding-top: 3px;
     }
-    
+
   }
 
   svg[class^="svg"] {

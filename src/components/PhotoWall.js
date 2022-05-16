@@ -55,7 +55,7 @@ const PhotoWall = () => {
                     className="photowall__img"
                 />
             </div>
-            <div ref={ref2} className="photowall__2 photowall__photo scroll" data-rate={0.04} data-ratex={-0.03} data-ratey={-0.04}>
+            <div ref={ref2} className="photowall__2 photowall__photo scroll" data-rate={0.04} data-ratex={-0.06} data-ratey={-0.05}>
                 <StaticImage
                     alt="Cynthia Cao at YouTube Shorts"
                     src="../images/cynthia-cao-youtube-shorts.jpg"
@@ -63,7 +63,7 @@ const PhotoWall = () => {
                     className="photowall__img"
                 />
             </div>
-            <div ref={ref3} className="photowall__3 photowall__photo scroll" data-rate={0.04} data-ratex={0.09} data-ratey={-0.12}>
+            <div ref={ref3} className="photowall__3 photowall__photo scroll" data-rate={0.04} data-ratex={0.11} data-ratey={-0.12}>
                 <StaticImage
                     alt="Cynthia Cao at graduation"
                     src="../images/cynthia-cao-graduation.jpg"
@@ -71,7 +71,7 @@ const PhotoWall = () => {
                     className="photowall__img"
                 />
             </div>
-            <div ref={ref4} className="photowall__4 photowall__photo scroll" data-rate={0.04} data-ratex={0.06} data-ratey={0.075}>
+            <div ref={ref4} className="photowall__4 photowall__photo scroll" data-rate={0.04} data-ratex={0.06} data-ratey={0.08}>
                 <StaticImage
                     alt="Cynthia Cao at Huobi Mainnet Happy Hour"
                     src="../images/cynthia-cao-huobi-happy-hour.jpg"

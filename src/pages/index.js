@@ -49,7 +49,9 @@ const IndexPage = () => {
               <h3 className="interests__header">
                 My Thoughts
               </h3>
-              <a href="https://medium.com/@ccisdreaming" target="_blank">https://medium.com/@ccisdreaming</a>
+              <a href="https://medium.com/@ccisdreaming" className="color-text" target="_blank">
+                https://medium.com/@ccisdreaming
+              </a>
             </div>
           </div>
         </section>
