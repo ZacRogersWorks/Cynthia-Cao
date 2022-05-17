@@ -10,10 +10,14 @@ const Video = () => {
 
     const [showVideo, setShowVideo] = useState(false);
 
-    const videoObserver = new IntersectionObserver(onVideoIntersection, {
-        rootMargin: '100px 0px',
-        threshold: .25
-    })
+    const videoObserver = useRef();
+
+    useEffect(() => {
+        videoObserver.current = new IntersectionObserver(onVideoIntersection, {
+            rootMargin: '100px 0px',
+            threshold: .25
+        })
+    }, [])
 
     useEffect(() => {
         if (window && 'IntersectionObserver' in window) {
