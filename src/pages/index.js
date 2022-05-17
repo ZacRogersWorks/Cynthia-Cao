@@ -9,6 +9,7 @@ import HeroBackground from "../components/HeroBackground";
 import FooterBackground from "../components/FooterBackground";
 import AudioPlayer from "../components/AudioPlayer/AudioPlayer";
 import SocialLinks from "../components/SocialLinks";
+import ContactForm from "../components/ContactForm";
 
 // markup
 const IndexPage = () => {
