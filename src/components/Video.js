@@ -54,7 +54,7 @@ const Video = () => {
         <div className="video">
             <div className="video-container" ref={container}>
                 <VideoOverlay playVideo={playVideo} ref={overlayRef} />
-                {setShowVideo && <YouTube ref={videoPlayerRef}
+                {showVideo && <YouTube ref={videoPlayerRef}
                     className="video-player"
                     videoId={"YpoJic6XeMs"}
                     onPause={() => pauseVideo()}

@@ -15,7 +15,7 @@ import ContactForm from "../components/ContactForm";
 const IndexPage = () => {
   return (
     <>
-      {/* <HeroBackground /> */}
+      <HeroBackground />
       <main className="main">
 
         <section className="about">
@@ -122,7 +122,7 @@ const IndexPage = () => {
         </div>
       </main>
       <footer>
-        {/* <FooterBackground /> */}
+        <FooterBackground />
         <p>
           &copy;2022 ccisdreaming. All right reserved.
         </p>
