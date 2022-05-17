@@ -53,7 +53,7 @@ const Video = () => {
     return (
         <div className="video">
             <div className="video-container" ref={container}>
-                <VideoOverlay playVideo={playVideo} ref={overlayRef} />
+               {showVideo && <VideoOverlay playVideo={playVideo} ref={overlayRef} />}
                 {showVideo && <YouTube ref={videoPlayerRef}
                     className="video-player"
                     videoId={"YpoJic6XeMs"}
