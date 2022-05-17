@@ -1,5 +1,11 @@
 @use '../base/mixins';
 
+
+@include mixins.md {
+ // Do stuff at md
+}
+
+
 .player {
   display: flex;
   flex-direction: reverse;
@@ -9,7 +15,6 @@
 
   &--reverse {
     flex-direction: row-reverse;
-
   }
 
   &__caption {

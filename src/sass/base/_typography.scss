@@ -1,3 +1,4 @@
+@use '../base/mixins';
 @use 'colors';
 @use '../components/rainbow-circle';
 
@@ -19,6 +20,14 @@ h2 {
   margin-top: 3.75rem;
   margin-bottom: 2rem;
 }
+
+@include mixins.md {
+ h2 {
+   font-size: 2rem;
+   margin-bottom: 2.5rem;
+ }
+}
+
 
 h3 {
   font-size: 1.25rem;

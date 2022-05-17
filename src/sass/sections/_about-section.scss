@@ -94,13 +94,14 @@
     flex-direction: row;
 
     .about-text {
-      flex-basis: 66%;
+      flex-basis: 40%;
     }
 
-    .col-spacer { flex-basis: 10%}
+    .col-spacer { flex-basis: 25%}
 
     .quote {
-      flex-basis: 23%;
+      flex-basis: 25%;
+      margin-right: 10%;
     }
   }
 }

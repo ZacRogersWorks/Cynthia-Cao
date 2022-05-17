@@ -12,29 +12,44 @@
     margin-top: 3rem;
     display: flex;
     flex-direction: column;
-    gap:2.25rem;
+    gap: 1.5rem;
   }
 }
 
 @include mixins.md {
-    .speaking-section__audio-players {
-    
-      flex-direction: row;
-      align-items: center;
+  .speaking-section__audio-players {
 
-      .player{
-        flex-direction: column;
-        margin: 5rem;
-      }
+    flex-direction: row;
+    align-items: center;
+    position: relative;
+    gap: 12rem;
+    margin-bottom: 5rem;
+    // background-color: red;
 
-      .player__border {
+    .player {
+      flex-direction: column;
+      // background-color: red;
+
+      &__border {
+        position: absolute;
+        left: 50%;
+        bottom: 80px;
         width: 0;
         height: 10rem;
-        border-right: 2px solid black;
+        border-right: 1px solid black;
       }
     }
+
+
+  }
 }
 
 @include mixins.lg {
+  .speaking-section__audio-players {
+    .player__border {
+      bottom: 100px;
+      height: 12rem;
+    }
+  }
 
 }

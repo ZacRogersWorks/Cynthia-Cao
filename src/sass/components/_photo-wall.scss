@@ -17,9 +17,9 @@
 
     &__container {
         max-width: 350px;
-        min-height: 455px; // 495 for circle
+        min-height: 350px; // 495 for circle
         margin: 0 auto;
-        margin-top: 4rem;
+        margin-top: 8rem;
         position: relative;
         width: 100%;
         display: flex;
@@ -51,38 +51,87 @@
         // clip-path: circle(); // turn this on if you want circle imgs
     }
 
-    // Cochella
+    // Crypto Wall
     &__1 {
-        max-width: 300px;
+        max-width: 250px;
+        top: 120px;
+        left: 0;
         z-index: 2;
     }
 
 
-    // YouTube Shorts
+    // University
     &__2 {
         max-width: 65%;
-        z-index: 3;
-        top: 0;
+        z-index: 1;
+        top: -30px;
+        right: -100px;
     }
 
-    // Draper Grad
+    // Red Light
     &__3 {
         max-width: 240px;
+        right: 130px;
+        top: 330px;
         z-index: 1;
     }
 
 
-    // Happy hour
+    // B&W
     &__4 {
-        width: 210px;
+        max-width: 240px;
         z-index: 4;
+        top: -160px;
+        left: -75px;
     }
 }
 
 @include mixins.sm {
     .photowall {
+
+        &__container {
+            margin-top:11rem;
+            min-height: 450px;
+        }
+        // Crypto Wall
+        &__1 {
+            top: 150px;
+            left: -40px;
+        }
+
+
+        // University
         &__2 {
-            max-width: 250px;
+            max-width: 85%;
+            top: -140px;
+            right: -140px;
+        }
+
+        // Red Light
+        &__3 {
+            max-width: 340px;
+            right: -100px;
+            top: 230px;
+        }
+
+        // B&W
+        &__4 {
+            max-width: 300px;
+            top: -90px;
+            left: -75px;
+        }
+    }
+
+}
+
+@include mixins.md {
+    .photowall {
+        &__container {
+            &::after {
+                filter: blur(40px);
+                // display: none;
+                // right:-50px;
+            }
         }
     }
 

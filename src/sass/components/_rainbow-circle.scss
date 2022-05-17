@@ -1,10 +1,7 @@
-
 @use '../base/mixins';
 
 $rainbow-circle-gradient-alt: linear-gradient(45deg, #b827fc 0%, #2c90fc 25%, #b8fd33 50%, #fec837 75%, #fd1892 100%);
-
 $rainbow-circle-gradient: linear-gradient(82deg, #defeed 40%, #dadafd 55%, 20%, #fddafb 65%, 75%, #fddbdf 65%);
-
 $rainbow-circle-bg-color: #fff;
 
 .rainbow-circle {
@@ -36,7 +33,6 @@ $rainbow-circle-bg-color: #fff;
   border-radius: 50%;
   z-index: 2;
   pointer-events: none;
-
 }
 
 .rainbow-circle::after {
@@ -63,4 +59,18 @@ $rainbow-circle-bg-color: #fff;
   left: 50%;
   transform: translate(-50%, -50%);
   background-color: $rainbow-circle-bg-color;
+}
+
+@include mixins.lg {
+  .rainbow-circle {
+    width: 240px;
+    height: 240px;
+
+    &__container {
+      width: 240px;
+    }
+    &__inner {
+      max-width: 100px;
+    }
+  }
 }
