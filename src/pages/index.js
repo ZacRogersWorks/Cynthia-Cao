@@ -16,6 +16,7 @@ import ContactForm from "../components/ContactForm";
 const IndexPage = () => {
   return (
     <>
+    <div className="test-strip"></div>
     <Helmet>
       <meta charSet="utf-8" />
       <title>Cynthia Cao | Artist, Investor, Entrepreneur</title>
@@ -28,7 +29,6 @@ const IndexPage = () => {
     </Helmet>
       <HeroBackground />
       <main className="main">
-
         <section className="about">
           <div className="about__sticky">
             <h1 className="header--primary">Hi, my name is <span className="rainbow">Cynthia</span>🦄</h1>
