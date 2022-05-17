@@ -2,23 +2,25 @@
 
 body {
   font-family: Arial, Helvetica, sans-serif;
+
 }
 
 .main {
   position: relative;
   overflow: hidden;
+  max-width: 1366px;
+  margin: 0 auto !important;
 
   &::before {
     content: "";
     width: 60%;
     height: 25%;
     background: colors.$bg-linear-gradient-top;
-    background-size:100%;
-    background-position: right;
+    background-size: 100%;
     position: absolute;
-    top: -9%;
-    right: 0;
-    opacity: 1;
+    top: -5%;
+    right: -10%;
+    opacity: 0.9;
     border-radius: 50%;
     z-index: -100;
     filter: blur(100px);

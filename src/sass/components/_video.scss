@@ -1,10 +1,17 @@
 @use '../base/colors';
 
+
+.video {
+    width: 100%;
+    max-width: 1024px;
+}
+
 .video-container {
     position: relative;
     display: flex;
     flex-direction: column;
     align-items: center;
+    
 }
 
 .video-overlay {
@@ -100,7 +107,7 @@
 
 .video-caption {
     text-align: center;
-    margin: 1rem 0;
+    margin: .5rem 0;
 }
 
 @-webkit-keyframes pulsate1 {
