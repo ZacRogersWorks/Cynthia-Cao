@@ -1,5 +1,6 @@
 import * as React from "react"
 import '../sass/styles.scss';
+import { Helmet } from 'react-helmet'
 
 import PhotoWall from '../components/PhotoWall'
 import Video from '../components/Video'
@@ -15,6 +16,16 @@ import ContactForm from "../components/ContactForm";
 const IndexPage = () => {
   return (
     <>
+    <Helmet>
+      <meta charSet="utf-8" />
+      <title>Cynthia Cao | Artist, Investor, Entrepreneur</title>
+      <meta name="description" content="
+            As a music industry professional for 6 years, I have worked in event planning, artist management, and as a musician and artist myself. Now I am full-time dedicated to Starseed DAO, where I am building a parallel music industry on-chain in the metaverse.
+      " />
+      <link rel="canonical" href="http://cynthiacao.xyz" />
+      <meta name="robots" content= "index, follow" />
+      <meta name="viewport" content="width=device-width, initial-scale=1" />
+    </Helmet>
       <HeroBackground />
       <main className="main">
 
