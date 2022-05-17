@@ -12,7 +12,7 @@ const SuccessCard = ({ sending, sent, setSent }) => {
         <div className="success__grid">
           <p className='success__emoji'>{sending ? '💈' : '✨'}</p>
           <p>{sending ? 'Sending message...' : 'Your message has been sent!'}</p>
-          <button className="btn btn--sm" onClick={handleClose}>Ok thanks!</button>
+          <button tabIndex={sent ? 0 : -1} className="btn btn--sm" onClick={handleClose}>Ok thanks!</button>
         </div>
       </div>
     </div>

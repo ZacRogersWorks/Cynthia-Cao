@@ -114,12 +114,7 @@ const IndexPage = () => {
             <div className="heading-container">
               <h2 className="header--primary">Contact me</h2>
             </div>
-            <form className="contact-form">
-              <input type="text" id="name" name="name" placeholder="Enter Name" required></input>
-              <input type="email" id="email" name="email" placeholder="Enter E-mail" required></input>
-              <textarea id="message" name="message" placeholder="Message..."></textarea>
-              <button className="btn" type="submit">Submit</button>
-            </form>
+            <ContactForm />
             <div className="social-links-container">
               <SocialLinks otherClasses="social-icons--footer" />
             </div>
