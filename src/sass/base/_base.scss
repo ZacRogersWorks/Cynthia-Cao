@@ -8,6 +8,52 @@ body {
   
 }
 
+.test-strip {
+  height: 50px;
+  width: 50px;
+  position: fixed;
+  top:0;
+  right:0;
+  background-color:rgb(255, 145, 0);
+  z-index: 9999;
+}
+
+@include mixins.xs {
+  .test-strip {
+    background-color: yellow;
+  }
+}
+
+@include mixins.sm {
+  .test-strip {
+    background-color: green;
+  }
+}
+
+@include mixins.md {
+  .test-strip {
+    background-color: rgb(10, 255, 226);
+  }
+}
+
+@include mixins.lg {
+  .test-strip {
+    background-color: rgb(27, 23, 255);
+  }
+}
+
+@include mixins.xl {
+  .test-strip {
+    background-color: rgb(208, 0, 255);
+  }
+}
+
+@include mixins.xxl {
+  .test-strip {
+    background-color: rgb(255, 9, 9);
+  }
+}
+
 .main {
   position: relative;
   overflow: hidden;
