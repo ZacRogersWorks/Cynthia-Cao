@@ -7,10 +7,18 @@ const Video = () => {
     const videoPlayerRef = useRef(null)
     const overlayRef = useRef(null)
     const container = useRef(null)
+    const videoObserver = useRef(null);
 
     const [showVideo, setShowVideo] = useState(false);
 
-    const videoObserver = useRef();
+    function onVideoIntersection(entries) {
+        if (!entries || entries.length <= 0) return
+
+        if (entries[0].isIntersecting) {
+            setShowVideo(true);
+            videoObserver.current.disconnect();
+        }
+    }
 
     useEffect(() => {
         videoObserver.current = new IntersectionObserver(onVideoIntersection, {
@@ -22,21 +30,13 @@ const Video = () => {
     useEffect(() => {
         if (window && 'IntersectionObserver' in window) {
             if (container && container.current) {
-                videoObserver.observe(container.current)
+                videoObserver.current.observe(container.current)
             }
         } else {
             setShowVideo(true)
         }
     }, [container])
 
-    function onVideoIntersection(entries) {
-        if (!entries || entries.length <= 0) return
-
-        if (entries[0].isIntersecting) {
-            setShowVideo(true);
-            videoObserver.disconnect();
-        }
-    }
 
     const playVideo = (e) => {
         overlayRef.current.style.opacity = 0;
@@ -54,12 +54,11 @@ const Video = () => {
         <div className="video">
             <div className="video-container" ref={container}>
                 <VideoOverlay playVideo={playVideo} ref={overlayRef} />
-                {
-                  showVideo ? <YouTube ref={videoPlayerRef}
-                        className="video-player"
-                        videoId={"YpoJic6XeMs"}
-                        onPause={() => pauseVideo()}
-                   /> : undefined
+                {setShowVideo && <YouTube ref={videoPlayerRef}
+                    className="video-player"
+                    videoId={"YpoJic6XeMs"}
+                    onPause={() => pauseVideo()}
+                />
                 }
             </div>
             <p className='video-caption'>Howie Mendel Podcast</p>
