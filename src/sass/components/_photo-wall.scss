@@ -2,6 +2,7 @@
 @use '../components/rainbow-circle';
 
 .photowall {
+
     &__img {
         box-shadow: 0px 0px 15px rgba(128, 128, 128, 0.2);
         transition: all .5s ease-in-out;
@@ -16,11 +17,12 @@
     }
 
     &__container {
+
+        position: relative;
         max-width: 350px;
         min-height: 350px; // 495 for circle
         margin: 0 auto;
         margin-top: 8rem;
-        position: relative;
         width: 100%;
         display: flex;
         align-items: center;
@@ -55,40 +57,42 @@
     &__1 {
         max-width: 250px;
         top: 120px;
-        left: 0;
+        left: 260px;
         z-index: 2;
     }
 
 
     // University
     &__2 {
-        max-width: 65%;
+        max-width: 45%;
+        top: 100px;
+        right: -40px;
         z-index: 1;
-        top: -30px;
-        right: -100px;
     }
 
     // Red Light
     &__3 {
         max-width: 240px;
         right: 130px;
-        top: 330px;
+        top: 180px;
         z-index: 1;
     }
 
 
     // B&W
     &__4 {
-        max-width: 240px;
+        max-width: 300px;
         z-index: 4;
         top: -160px;
-        left: -75px;
+        left: -50px;
     }
+
+    // Head shot
     &__5 {
-        // display: none;
         max-width: 40%;
-        left:0;
-        z-index: 1;
+        left: -60px;
+        top: 360px;
+        z-index: 5;
     }
 }
 
@@ -96,40 +100,55 @@
     .photowall {
 
         &__container {
-            margin-top: 11rem;
             min-height: 450px;
         }
 
         // Crypto Wall
         &__1 {
-            top: 150px;
-            left: -40px;
+            max-width: 280px;
+            top: 120px;
+            left: 260px;
+            z-index: 2;
         }
 
 
         // University
         &__2 {
-            max-width: 85%;
-            top: -140px;
-            right: -140px;
+            max-width: 45%;
+            top: 100px;
+            right: -70px;
+            z-index: 1;
         }
 
         // Red Light
         &__3 {
-            max-width: 340px;
-            right: -100px;
-            top: 230px;
+            max-width: 240px;
+            right: 200px;
+            top: 180px;
+            z-index: 1;
         }
+
 
         // B&W
         &__4 {
             max-width: 300px;
-            top: -90px;
-            left: -75px;
+            z-index: 4;
+            top: -160px;
+            left: -50px;
         }
+
+        // Head shot
+        &__5 {
+            max-width: 40%;
+            left: -60px;
+            top: 260px;
+            z-index: 5;
+        }
+
     }
 
 }
+
 
 @include mixins.md {
     .photowall {
@@ -138,53 +157,148 @@
                 filter: blur(40px);
             }
         }
-    }
-}
-
-@include mixins.lg {
-    .photowall {
-        &__container {
-            max-width: 800px;
-            min-height: 900px;
-            // background-color: red;
-        }
 
         // Crypto Wall
         &__1 {
-            max-width: 60%;
-            top: 300px;
-            left: 40px;
-            z-index: 1;
+            max-width: 320px;
+            top: 120px;
+            left: 260px;
+            z-index: 2;
         }
 
 
         // University
         &__2 {
-            max-width: 50%;
-            top: 30px;
-            right: -200px;
+            max-width: 55%;
+            top: 50px;
+            right: -120px;
+            z-index: 1;
         }
 
         // Red Light
         &__3 {
-            max-width: 540px;
-            right: -240px;
-            top: 400px;
+            max-width: 320px;
+            right: 200px;
+            top: 180px;
+            z-index: 1;
         }
+
 
         // B&W
         &__4 {
-            max-width: 60%;
-            z-index: 1;
-            top: -120px;
-            left: 126px;
+            max-width: 300px;
+            z-index: 4;
+            top: -160px;
+            left: -50px;
         }
-        // Headshot
+
+        // Head shot
         &__5 {
-            display: block;
-            max-width: 400px;
-            top: 100px;
-            left: -200px;
+            max-width: 40%;
+            left: -60px;
+            top: 260px;
+            z-index: 5;
+        }
+    }
+}
+
+@include mixins.lg {
+    .photowall {
+
+        &__container {
+            max-width: 550px;
+            min-height: 600px;
+        }
+        // Crypto Wall
+        &__1 {
+            max-width: 280px;
+            top: 370px;
+            left: 260px;
+            z-index: 2;
+        }
+
+
+        // University
+        &__2 {
+            max-width: 65%;
+            top: 200px;
+            right: -205px;
+            z-index: 1;
+        }
+
+        // Red Light
+        &__3 {
+            max-width: 420px;
+            right: 340px;
+            top: 180px;
+            z-index: 5;
+        }
+
+
+        // B&W
+        &__4 {
+            max-width: 500px;
+            z-index: 4;
+            top: -110px;
+            left: -50px;
+        }
+
+        // Head shot
+        &__5 {
+            max-width: 40%;
+            left: -80px;
+            top: 90px;
+            z-index: 5;
+        }
+    }
+}
+
+@include mixins.xl {
+    .photowall {
+
+        &__container {
+            max-width: 550px;
+        }
+        // Crypto Wall
+        &__1 {
+            max-width: 280px;
+            top: 380px;
+            left: 260px;
+            z-index: 2;
+        }
+
+
+        // University
+        &__2 {
+            max-width: 65%;
+            top: 200px;
+            right: -255px;
+            z-index: 1;
+        }
+
+        // Red Light
+        &__3 {
+            max-width: 460px;
+            right: 340px;
+            top: 180px;
+            z-index: 5;
+        }
+
+
+        // B&W
+        &__4 {
+            max-width: 550px;
+            z-index: 4;
+            top: -130px;
+            left: -50px;
+        }
+
+        // Head shot
+        &__5 {
+            max-width: 40%;
+            left: -80px;
+            top: 90px;
+            z-index: 5;
         }
     }
 

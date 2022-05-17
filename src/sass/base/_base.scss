@@ -25,19 +25,19 @@
 
 @include mixins.md {
   .test-strip {
-    background-color: rgb(10, 255, 226);
+    background-color: rgb(255, 10, 181);
   }
 }
 
 @include mixins.lg {
   .test-strip {
-    background-color: rgb(27, 23, 255);
+    background-color: rgb(69, 255, 165);
   }
 }
 
 @include mixins.xl {
   .test-strip {
-    background-color: rgb(208, 0, 255);
+    background-color: rgb(41, 5, 49);
   }
 }
 
@@ -50,7 +50,7 @@
 .main {
   position: relative;
   overflow: hidden;
-  max-width: 1366px;
+  max-width: 1200px;
   margin: 0 auto !important;
   // &::before {
   //   content: "";

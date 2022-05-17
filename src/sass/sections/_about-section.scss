@@ -12,7 +12,8 @@
 
   &-tagline {
     font-family: 'Surt', sans-serif;
-    font-size: 2.5rem;
+    margin-top: 1rem;
+    font-size: 1.75rem;
     font-weight: bolder;
     line-height: 1em;
   }
@@ -25,6 +26,14 @@
     }
   }
 }
+
+@include mixins.md {
+  .about-tagline {
+    margin-top: 0;
+    font-size: 2.5rem;
+  }
+}
+
 // About section breakpoints
 @include mixins.md {
   .about-tagline {
@@ -58,8 +67,8 @@
     margin-top: 2.5rem;
     margin-bottom: 1rem;
     margin-left: 1rem;
-    align-self:flex-end;
-  
+    align-self: flex-end;
+
     p {
       font-size: .75rem;
       text-align: right;
@@ -67,13 +76,14 @@
       font-weight: bold;
       line-height: 1rem;
     }
-  
+
     span {
       font-style: normal;
       padding-left: 4px;
     }
   }
 }
+
 // About Row breakpoints 
 @include mixins.xs {
   .quote {
@@ -85,7 +95,7 @@
   .quote {
     margin-bottom: 0;
 
-    .social-icons{
+    .social-icons {
       margin-bottom: 0;
     }
   }
@@ -96,14 +106,16 @@
     flex-direction: row;
 
     .about-text {
-      flex-basis: 40%;
+      flex-basis: 60%;
     }
 
-    .col-spacer { flex-basis: 25%}
+    .col-spacer {
+      flex-basis: 10%
+    }
 
     .quote {
-      flex-basis: 25%;
-      margin-right: 10%;
+      flex-basis: 30%;
+      margin-bottom: 0;
     }
   }
 }
@@ -115,7 +127,14 @@
 }
 
 @include mixins.xl {
-  .col-spacer {flex-basis: 25%}
+  .col-spacer {
+    flex-basis: 25%
+  }
+
+  .about-text {
+    font-size: 1.15rem;
+  }
+
   .quote {
     flex-basis: 25%;
   }
@@ -138,7 +157,7 @@
     flex-direction: column;
     align-items: center;
     flex-basis: 50%;
-    margin-top: 2rem;
+
     &:first-of-type {
       margin-bottom: 3rem;
     }
@@ -158,11 +177,11 @@
       transition: all .25s ease-in-out;
       display: flex;
       align-items: center;
-      
-      
-        svg {
-          margin-left: .5rem;
-        }
+
+
+      svg {
+        margin-left: .5rem;
+      }
 
       &:hover {
         font-weight: 600;
@@ -175,7 +194,8 @@
   .interests {
     flex-direction: row;
     align-items: flex-start;
-    &__col{
+
+    &__col {
       margin-top: 3rem;
 
       &:first-of-type {
