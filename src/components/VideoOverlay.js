@@ -1,5 +1,4 @@
 import React, { forwardRef } from 'react'
-import { StaticImage } from 'gatsby-plugin-image'
 
 const VideoOverlay = forwardRef(({ playVideo }, ref) => {
 

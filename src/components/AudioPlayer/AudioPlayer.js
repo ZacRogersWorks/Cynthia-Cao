@@ -14,6 +14,7 @@ function AudioPlayer({ src, title }) {
   const [currentTime, setCurrentTime] = useState(0)
   const [isPlaying, setIsPlaying] = useState(false)
   const [isMuted, setIsMuted] = useState(false)
+  const [isMediaError, setIsMediaError] = useState(false)
 
   // AUDIO TAG EVENT HANDLERS
   const handleDurationChange = () => {
@@ -23,13 +24,22 @@ function AudioPlayer({ src, title }) {
   }
 
   // Data Loading Handlers
-  const handleCanPlay = () => {
+  const handleOnLoadStart = () => {
+    setIsMediaLoaded(false)
+  }
+
+  const handleOnCanPlay = () => {
     setIsMediaLoaded(true)
   }
 
-  const handleLoadStart = () => {
+  const handleOnStalled = () => {
     setIsMediaLoaded(false)
   }
+
+  const handleOnError = () => {
+    setIsMediaError(true)
+  }
+
 
   // Load song on mount
   useEffect(() => {
@@ -122,9 +132,15 @@ function AudioPlayer({ src, title }) {
               <PlayOrPause playing={isPlaying} />
             </button>
             <div className='player__duration'>
-              <span>{secondsToTime(currentTime)}</span>
-              <span>/</span>
-              <span>{secondsToTime(duration)}</span>
+              {isMediaError ? 'error loading' : (
+                isMediaLoaded ? (
+                  <>
+                    <span>{secondsToTime(currentTime)}</span>
+                    <span>/</span>
+                    <span>{secondsToTime(duration)}</span>
+                  </>
+                ) : 'loading...'
+              )}
             </div>
           </div>
           <div className='player__row'>
@@ -149,8 +165,10 @@ function AudioPlayer({ src, title }) {
         <audio
           ref={ref}
           preload="metadata"
-          onCanPlay={handleCanPlay}
-          onLoadStart={handleLoadStart}
+          onError={handleOnError}
+          onStalled={handleOnStalled}
+          onCanPlay={handleOnCanPlay}
+          onLoadStart={handleOnLoadStart}
           onDurationChange={handleDurationChange}
           onTimeUpdate={handleTimeUpdate}
         >

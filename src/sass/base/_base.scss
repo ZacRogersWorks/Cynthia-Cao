@@ -1,13 +1,6 @@
 @use '../base/colors';
 @use '../base/mixins';
 
-
-body {
-  font-family: Arial, Helvetica, sans-serif;
-
-  
-}
-
 .test-strip {
   height: 50px;
   width: 50px;
@@ -59,21 +52,21 @@ body {
   overflow: hidden;
   max-width: 1366px;
   margin: 0 auto !important;
-  &::before {
-    content: "";
-    width: 60%;
-    height: 25%;
-    background: colors.$bg-linear-gradient-top;
-    background-size: 100%;
-    position: absolute;
-    top: -5%;
-    right: 0%;
-    opacity: 0.7;
-    border-radius: 50%;
-    z-index: -100;
-    filter: blur(100px);
-    transform: rotate(-45deg);
-  }
+  // &::before {
+  //   content: "";
+  //   width: 60%;
+  //   height: 25%;
+  //   background: colors.$bg-linear-gradient-top;
+  //   background-size: 100%;
+  //   position: absolute;
+  //   top: -5%;
+  //   right: 0%;
+  //   opacity: 0.7;
+  //   border-radius: 50%;
+  //   z-index: -100;
+  //   filter: blur(100px);
+  //   transform: rotate(-45deg);
+  // }
 }
 
 @include mixins.md {
