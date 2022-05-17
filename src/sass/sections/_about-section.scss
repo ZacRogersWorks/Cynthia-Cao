@@ -1,6 +1,7 @@
 @use '../base/vars';
 @use '../base/colors';
 @use '../base/mixins';
+@use '../base/typography';
 
 
 // **** About section (includes primary heading) **** //
@@ -10,6 +11,7 @@
   margin-right: vars.$right-margin;
 
   &-tagline {
+    font-family: 'Surt', sans-serif;
     font-size: 2.5rem;
     font-weight: bolder;
     line-height: 1em;

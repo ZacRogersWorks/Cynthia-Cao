@@ -1,3 +1,5 @@
+@use '../base/mixins';
+
 footer p {
     text-align: center;
     font-size: .75rem;
@@ -6,7 +8,7 @@ footer p {
 
 .footer-gradient-background {
     width: 100%;
-    height: 500px;
+    height: 700px;
     position: absolute;
     bottom: 0;
     overflow: hidden;
@@ -18,9 +20,27 @@ footer p {
     width: 150%;
     height: 120%;
     position: absolute;
-    bottom: -150px;
-    left: -50px;
+    bottom: -50%;
+    right: 0;
     z-index: -1;
     border-radius: 50%;
-    filter: blur(50px);
+    filter: blur(100px);
+}
+
+@include mixins.md {
+    .footer-gradient-background {
+        height: 1500px;
+    }
+}
+
+@include mixins.lg {
+    .footer-gradient-background {
+        height: 1300px;
+    }
+}
+
+@include mixins.xl {
+    .footer-gradient-background {
+        height: 1100px;
+    }
 }

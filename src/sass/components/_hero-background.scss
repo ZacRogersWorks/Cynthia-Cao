@@ -1,3 +1,5 @@
+@use '../base/mixins';
+
 .hero-gradient-container {
     margin: -50px -50px 0 0;
     position: absolute;
@@ -7,36 +9,63 @@
     width: 100%;
     height: 250vh;
     z-index: -1;
+
+    .hero-gradient-color_1 {
+        width: 700px;
+        height: 700px;
+        background-color: #c9dfe7;
+        border-radius: 50%;
+        position: absolute;
+        z-index: -1;
+        top: -10%;
+        right: -80%;
+        filter: blur(80px);
+        animation: gradient-color 10s ease-in-out infinite;
+    }
+
+    .hero-gradient-color_2 {
+        content: '';
+        height: 2500px;
+        width: 750px;
+        background-color: #def9e0;
+        border-radius: 35%;
+        display: block;
+        position: absolute;
+        top: -500px;
+        right: -500px;
+        z-index: -2;
+        filter: blur(80px);
+        transform: rotate(-45deg);
+        animation: gradient-color_1 12s ease-in-out infinite;
+    }
 }
 
-.hero-gradient-color_1 {
-    width: 700px;
-    height: 700px;
-    background-color: #c9dfe7;
-    border-radius: 50%;
-    position: absolute;
-    z-index: -1;
-    top: -10%;
-    right: -80%;
-    filter: blur(50px);
-    animation: gradient-color 5s ease-in-out infinite;
+@include mixins.sm {
+    .hero-gradient-container {
+        .hero-gradient-color_1 {
+        right: -40%;
+        }
+    }
 }
 
-.hero-gradient-color_2 {
-    content: '';
-    height: 2500px;
-    width: 750px;
-    background-color: #def9e0;
-    border-radius: 35%;
-    display: block;
-    position: absolute;
-    top: -100px;
-    right: -500px;
-    z-index: -2;
-    filter: blur(50px);
-    transform: rotate(-10deg);
-    // animation: gradient-color_1 8s ease-in-out infinite;
+@include mixins.md {
+    .hero-gradient-container {
+        .hero-gradient-color_1 {
+        right: -30%;
+        }
+    }
 }
+@include mixins.xl {
+    .hero-gradient-container {
+        .hero-gradient-color_1 {
+        right: -20%;
+        }
+        .hero-gradient-color_2 {
+        right:-200px;
+        }
+    }
+}
+
 
 @keyframes gradient-color {
     0%{ 
@@ -46,7 +75,7 @@
         transform: translateY(-50px)
     }
     50% {
-        transform: translateY(0) scale(1.3)
+        transform: translateY(0) scale(.5)
     }
     75% {
         transform: translateY(-50px) scale(1)
@@ -62,7 +91,7 @@
     }
 
     25% {
-        transform: rotate(-65deg) scale(1.2) translateY(400px)
+        transform: rotate(-45deg) scale(1.2) translateY(400px)
     }
 
     50% {
