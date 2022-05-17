@@ -14,26 +14,30 @@ import SocialLinks from "../components/SocialLinks";
 const IndexPage = () => {
   return (
     <>
+      {/* <HeroBackground /> */}
       <main className="main">
-        {/* <HeroBackground /> */}
+
         <section className="about">
           <div className="about__sticky">
-            <h1 className="header--primary">Hi, my name is <span className="rainbow">Cynthia</span>🦄
-              <br />I am an artist, investor, entrepreneur that crazy builder in Web3 Music</h1>
+            <h1 className="header--primary">Hi, my name is <span className="rainbow">Cynthia</span>🦄</h1>
+            <p className="about-tagline">I am an artist, investor, entrepreneur that crazy builder in Web3 Music</p>
           </div>
-          <div className="about__text">
-            <p>As a music industry professional for 6 years, I have worked in event planning, artist management, and as a musician and artist myself.</p>
+          <div className="about-row">
+            <div className="about-text">
+              <p>As a music industry professional for 6 years, I have worked in event planning, artist management, and as a musician and artist myself.</p>
 
-            <p>Aside from my entertainment experiences, I have been working as an investor with a family office background and led investments ranging from early blockchain protocols to pre-IPO tech companies.</p>
+              <p>Aside from my entertainment experiences, I have been working as an investor with a family office background and led investments ranging from early blockchain protocols to pre-IPO tech companies.</p>
 
-            <p>Now I am full-time dedicated to Starseed DAO, where I am building a parallel music industry on-chain in the metaverse.</p>
+              <p>Now I am full-time dedicated to Starseed DAO, where I am building a parallel music industry on-chain in the metaverse.</p>
+            </div>
+            <div className="col-spacer"></div>
+            <aside className="quote">
+              <p>
+                "My life mission is to help with earth's ascension and humanity's collective consciousness to rise above to achieve interstellar civilization."
+              </p>
+              <SocialLinks />
+            </aside>
           </div>
-          <aside className="quote">
-            <p>
-              "My life mission is to help with earth's ascension and humanity's collective consciousness to rise above to achieve interstellar civilization."
-            </p>
-            <SocialLinks />
-          </aside>
           <div className="interests">
             <div className="interests__col">
               <span>✨</span>
@@ -50,7 +54,11 @@ const IndexPage = () => {
                 My Thoughts
               </h3>
               <a href="https://medium.com/@ccisdreaming" className="color-text" target="_blank">
-                https://medium.com/@ccisdreaming
+                Read my Medium articles
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 27 27">
+                  <path id="Icon_material-open-in-new" data-name="Icon material-open-in-new" d="M28.5,28.5H7.5V7.5H18v-3H7.5a3,3,0,0,0-3,3v21a3,3,0,0,0,3,3h21a3.009,3.009,0,0,0,3-3V18h-3ZM21,4.5v3h5.385L11.64,22.245l2.115,2.115L28.5,9.615V15h3V4.5Z" transform="translate(-4.5 -4.5)" />
+                </svg>
+
               </a>
             </div>
           </div>
@@ -74,6 +82,7 @@ const IndexPage = () => {
               />
               <p className="player__caption">SXSW Panel</p>
             </div>
+            <div className="player__border"></div>
             <div className="player player--reverse">
               <AudioPlayer
                 title="Solana Hacker House Panel"
@@ -85,34 +94,36 @@ const IndexPage = () => {
             </div>
           </div>
         </section>
-        <section className="press-section">
-          <div className="heading-container">
-            <h2 className="header--primary">Press</h2>
-          </div>
-          <ul className="press-links">
-            {PRESS_LINKS.map(article => {
-              return (
-                <li key={article.id}>
-                  <a className="color-text" href={`${article.link}`}>{article.title}</a>
-                </li>
-              )
-            })}
-          </ul>
-        </section>
-        <section className="contact-section">
-          <div className="heading-container">
-            <h2 className="header--primary">Contact me</h2>
-          </div>
-          <form className="contact-form">
-            <input type="text" id="name" name="name" placeholder="Enter Name" required></input>
-            <input type="email" id="email" name="email" placeholder="Enter E-mail" required></input>
-            <textarea id="message" name="message" placeholder="Message..."></textarea>
-            <button className="btn" type="submit">Submit</button>
-          </form>
-          <div className="social-links-container">
-            <SocialLinks otherClasses="social-icons--footer" />
-          </div>
-        </section>
+        <div className="contact-press-container">
+          <section className="press-section">
+            <div className="heading-container">
+              <h2 className="header--primary">Press</h2>
+            </div>
+            <ul className="press-links">
+              {PRESS_LINKS.map(article => {
+                return (
+                  <li key={article.id}>
+                    <a className="color-text" href={`${article.link}`}>{article.title}</a>
+                  </li>
+                )
+              })}
+            </ul>
+          </section>
+          <section className="contact-section">
+            <div className="heading-container">
+              <h2 className="header--primary">Contact me</h2>
+            </div>
+            <form className="contact-form">
+              <input type="text" id="name" name="name" placeholder="Enter Name" required></input>
+              <input type="email" id="email" name="email" placeholder="Enter E-mail" required></input>
+              <textarea id="message" name="message" placeholder="Message..."></textarea>
+              <button className="btn" type="submit">Submit</button>
+            </form>
+            <div className="social-links-container">
+              <SocialLinks otherClasses="social-icons--footer" />
+            </div>
+          </section>
+        </div>
       </main>
       <footer>
         {/* <FooterBackground /> */}

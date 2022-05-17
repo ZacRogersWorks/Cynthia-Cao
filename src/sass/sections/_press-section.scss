@@ -1,12 +1,22 @@
 @use '../base/vars';
+@use '../base/mixins';
+
+@include mixins.md {
+    .contact-press-container {
+        display: flex;
+        flex-direction:row-reverse;
+        margin-bottom: 5rem;
+        gap: 5rem;
+    }
+}
 
 .press-section {
     margin-left: vars.$left-margin;
     margin-right: vars.$right-margin;
+    flex-basis: 50%;
 }
 
 .press-links {
-
     :not(:last-child) {
         margin-bottom: 1.5rem;
     }
@@ -24,3 +34,4 @@
         position: relative;
     }
 }
+

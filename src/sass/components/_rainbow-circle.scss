@@ -1,3 +1,6 @@
+
+@use '../base/mixins';
+
 $rainbow-circle-gradient-alt: linear-gradient(45deg, #b827fc 0%, #2c90fc 25%, #b8fd33 50%, #fec837 75%, #fd1892 100%);
 
 $rainbow-circle-gradient: linear-gradient(82deg, #defeed 40%, #dadafd 55%, 20%, #fddafb 65%, 75%, #fddbdf 65%);

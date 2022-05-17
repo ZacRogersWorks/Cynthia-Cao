@@ -1,3 +1,5 @@
+@use '../base/mixins';
+
 .player {
   display: flex;
   flex-direction: reverse;
