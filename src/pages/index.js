@@ -23,7 +23,7 @@ const IndexPage = () => {
 
   //Interests scroll aniamtion
   const interestsControls = useAnimation();
-  const [ interestsMotionRef, interestsInView ] = useInView();
+  const [interestsMotionRef, interestsInView] = useInView();
   useEffect(() => {
     if (interestsInView) {
       interestsControls.start("show")
@@ -32,14 +32,14 @@ const IndexPage = () => {
 
   // Audio Players scroll animation\
   const audioPlayerControls = useAnimation();
-  const [ audioPlayerMotionRef, playersInView ] = useInView();
+  const [audioPlayerMotionRef, playersInView] = useInView();
   useEffect(() => {
     if (playersInView) {
       audioPlayerControls.start("show")
     }
   }, [audioPlayerControls, playersInView])
 
-  
+
   return (
     <>
       <div className="test-strip"></div>
@@ -52,6 +52,14 @@ const IndexPage = () => {
         <link rel="canonical" href="http://cynthiacao.xyz" />
         <meta name="robots" content="index, follow" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+        <meta property="og:title" content="Cynthia Cao | Artist, Investor, Entrepreneur" />
+        <meta property="og:url" content="https://cynthiacao.xyz" />
+        <meta property="og:url" content="https://cynthiacao.xyz/og-meta.jpg" />
+        <meta property="og:type" content="website" />
+        <meta property="og:description" content="As a music industry professional for 6 years, I have worked in event planning, artist management, and as a musician and artist myself. Now I am full-time dedicated to Starseed DAO, where I am building a parallel music industry on-chain in the metaverse." />
+        <meta property="og:image:width" content="1200" />
+        <meta property="og:image:height" content="630" />
       </Helmet>
       <HeroBackground />
       <main className="main">
@@ -60,19 +68,19 @@ const IndexPage = () => {
             variants={ANIMATION_VARIANTS.heading}
             initial="hidden"
             animate="show"
-            >
+          >
             <motion.h1 className="header--primary" variants={ANIMATION_VARIANTS.heading}>
               Hi, my name is <span className="rainbow">Cynthia</span>🦄
             </motion.h1>
             <motion.p className="about-tagline" variants={ANIMATION_VARIANTS.heading}>I am an artist, investor, entrepreneur <br />that crazy builder in Web3 Music</motion.p>
           </motion.div>
-          <motion.div className="about-row" 
-          variants={ANIMATION_VARIANTS.about}
-          initial="hidden"
-          animate="show"
+          <motion.div className="about-row"
+            variants={ANIMATION_VARIANTS.about}
+            initial="hidden"
+            animate="show"
           >
             <motion.div className="about-text" variants={ANIMATION_VARIANTS.about}>
-              <p>As a music industry professional for 6 years, I have worked in event planning, artist management, and as a musician and artist myself.</p>
+              <p>As a music industry veteran, I have worked in event planning, artist management, and as a musician and artist myself.</p>
 
               <p>Aside from my entertainment experiences, I have been working as an investor with a family office background and led investments ranging from early blockchain protocols to pre-IPO tech companies.</p>
 
@@ -101,8 +109,8 @@ const IndexPage = () => {
                 Music, Blockchain, Metaverse, NFTs, DAOs, Defi, Artificial Intelligence, Neuroscience
               </p>
             </motion.div>
-            <motion.div className="interests__col" 
-            variants={ANIMATION_VARIANTS.interests}>
+            <motion.div className="interests__col"
+              variants={ANIMATION_VARIANTS.interests}>
               <span>💭</span>
               <h3 className="interests__header">
                 My Thoughts
@@ -123,10 +131,10 @@ const IndexPage = () => {
         <section className="speaking-section">
           <Video />
           <motion.div className="speaking-section__audio-players"
-          variants={ANIMATION_VARIANTS.audioPlayerContainer}
-          initial="hidden"
-          animate={audioPlayerControls}
-          ref={audioPlayerMotionRef}
+            variants={ANIMATION_VARIANTS.audioPlayerContainer}
+            initial="hidden"
+            animate={audioPlayerControls}
+            ref={audioPlayerMotionRef}
           >
             <motion.div className="player"
               variants={ANIMATION_VARIANTS.audioPlayerOne}

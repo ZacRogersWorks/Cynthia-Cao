@@ -1,7 +1,6 @@
-import React, { useRef, useEffect } from 'react'
+import React from 'react'
 
 const HeroBackground = () => {
-    const canvasRef = useRef(null)
 
     return (
         <div className="hero-gradient-container">
