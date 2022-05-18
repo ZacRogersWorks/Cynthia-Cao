@@ -10,5 +10,18 @@ module.exports = {
       "path": "./src/images/"
     },
     __key: "images"
-  }]
+  },
+    {
+      resolve: `gatsby-plugin-manifest`,
+      options: {
+        name: `Cynthia Cao`,
+        short_name: `Cynthia Cao`,
+        start_url: `/`,
+        background_color: `#ffffff`,
+        theme_color: `#000000`,
+        icon: `src/images/icon.png`,
+        theme_color_in_head: false,
+        display: `standalone`
+      }
+    }]
 };
