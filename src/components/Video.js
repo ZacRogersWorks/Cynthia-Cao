@@ -1,14 +1,31 @@
 import React, { useEffect, useRef, useState } from 'react'
 import YouTube from 'react-youtube'
+import { motion, useAnimation } from 'framer-motion'
+import { useInView } from "react-intersection-observer";
+
+import { ANIMATION_VARIANTS } from './ANIMATION_VARIANTS';
 
 import VideoOverlay from './VideoOverlay'
 
 const Video = () => {
+
+    //Refs
     const videoPlayerRef = useRef(null)
     const overlayRef = useRef(null)
     const container = useRef(null)
     const videoObserver = useRef(null);
+    const controls = useAnimation();
 
+    // Animation on scroll
+    const [motionRef, inView] = useInView();
+    useEffect(() => {
+        if (inView) {
+            controls.start("show")
+        }
+    }, [controls, inView])
+
+
+    //Lazy load video embed
     const [showVideo, setShowVideo] = useState(false);
 
     function onVideoIntersection(entries) {
@@ -38,6 +55,7 @@ const Video = () => {
     }, [container])
 
 
+    // Show/hide overlay
     const playVideo = (e) => {
         overlayRef.current.style.opacity = 0;
         overlayRef.current.style.zIndex = -2;
@@ -51,18 +69,26 @@ const Video = () => {
     }
 
     return (
-        <div className="video">
-            <div className="video-container" ref={container}>
-               {showVideo && <VideoOverlay playVideo={playVideo} ref={overlayRef} />}
+        <motion.div className="video"
+            variants={ANIMATION_VARIANTS.photowall}
+            initial="hidden"
+            animate={controls}
+            ref={motionRef}
+        >
+            <motion.div className="heading-container" variants={ANIMATION_VARIANTS.photowall}>
+                <h2 className="header--primary mt-1">Speaking</h2>
+            </motion.div>
+            <motion.div className="video-container" ref={container} variants={ANIMATION_VARIANTS.photowall}>
+                {showVideo && <VideoOverlay playVideo={playVideo} ref={overlayRef} />}
                 {showVideo && <YouTube ref={videoPlayerRef}
                     className="video-player"
                     videoId={"YpoJic6XeMs"}
                     onPause={() => pauseVideo()}
                 />
                 }
-            </div>
-            <p className='video-caption'>Howie Mendel Podcast</p>
-        </div>
+            </motion.div>
+            <motion.p className='video-caption' variants={ANIMATION_VARIANTS.photowall}>Howie Mendel Podcast</motion.p>
+        </motion.div>
     )
 }
 
