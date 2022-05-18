@@ -1,20 +1,45 @@
-import * as React from "react"
+// Dependencies
+import React, { useEffect } from "react"
 import '../sass/styles.scss';
 import { Helmet } from 'react-helmet'
+import { motion, useAnimation } from 'framer-motion'
+import { useInView } from "react-intersection-observer";
 
+// Lists
+import { ANIMATION_VARIANTS } from "../components/ANIMATION_VARIANTS";
 
+// Components
 import PhotoWall from '../components/PhotoWall'
 import Video from '../components/Video'
-
-import { PRESS_LINKS } from "../components/PRESS_LINKS";
 import HeroBackground from "../components/HeroBackground";
 import FooterBackground from "../components/FooterBackground";
 import AudioPlayer from "../components/AudioPlayer/AudioPlayer";
 import SocialLinks from "../components/SocialLinks";
+import Press from "../components/Press";
 import ContactForm from "../components/ContactForm";
 
 // markup
 const IndexPage = () => {
+
+  //Interests scroll aniamtion
+  const interestsControls = useAnimation();
+  const [ interestsMotionRef, interestsInView ] = useInView();
+  useEffect(() => {
+    if (interestsInView) {
+      interestsControls.start("show")
+    }
+  }, [interestsControls, interestsInView])
+
+  // Audio Players scroll animation\
+  const audioPlayerControls = useAnimation();
+  const [ audioPlayerMotionRef, playersInView ] = useInView();
+  useEffect(() => {
+    if (playersInView) {
+      audioPlayerControls.start("show")
+    }
+  }, [audioPlayerControls, playersInView])
+
+  
   return (
     <>
       <div className="test-strip"></div>
@@ -31,28 +56,43 @@ const IndexPage = () => {
       <HeroBackground />
       <main className="main">
         <section className="about">
-          <div className="about__sticky">
-            <h1 className="header--primary">Hi, my name is <span className="rainbow">Cynthia</span>🦄</h1>
-            <p className="about-tagline">I am an artist, investor, entrepreneur <br />that crazy builder in Web3 Music</p>
-          </div>
-          <div className="about-row">
-            <div className="about-text">
+          <motion.div className="about__sticky"
+            variants={ANIMATION_VARIANTS.heading}
+            initial="hidden"
+            animate="show"
+            >
+            <motion.h1 className="header--primary" variants={ANIMATION_VARIANTS.heading}>
+              Hi, my name is <span className="rainbow">Cynthia</span>🦄
+            </motion.h1>
+            <motion.p className="about-tagline" variants={ANIMATION_VARIANTS.heading}>I am an artist, investor, entrepreneur <br />that crazy builder in Web3 Music</motion.p>
+          </motion.div>
+          <motion.div className="about-row" 
+          variants={ANIMATION_VARIANTS.about}
+          initial="hidden"
+          animate="show"
+          >
+            <motion.div className="about-text" variants={ANIMATION_VARIANTS.about}>
               <p>As a music industry professional for 6 years, I have worked in event planning, artist management, and as a musician and artist myself.</p>
 
               <p>Aside from my entertainment experiences, I have been working as an investor with a family office background and led investments ranging from early blockchain protocols to pre-IPO tech companies.</p>
 
               <p>Now I am full-time dedicated to Starseed DAO, where I am building a parallel music industry on-chain in the metaverse.</p>
-            </div>
+            </motion.div>
             <div className="col-spacer"></div>
-            <aside className="quote">
+            <motion.aside className="quote" variants={ANIMATION_VARIANTS.about}>
               <p>
                 "My life mission is to help with earth's ascension and humanity's collective consciousness to rise above to achieve interstellar civilization."
               </p>
               <SocialLinks />
-            </aside>
-          </div>
-          <div className="interests">
-            <div className="interests__col">
+            </motion.aside>
+          </motion.div>
+          <motion.div className="interests"
+            variants={ANIMATION_VARIANTS.interests}
+            initial="hidden"
+            animate={interestsControls}
+            ref={interestsMotionRef}
+          >
+            <motion.div className="interests__col" variants={ANIMATION_VARIANTS.interests}>
               <span>✨</span>
               <h3 className="interests__header">
                 My Interests
@@ -60,8 +100,9 @@ const IndexPage = () => {
               <p>
                 Music, Blockchain, Metaverse, NFTs, DAOs, Defi, Artificial Intelligence, Neuroscience
               </p>
-            </div>
-            <div className="interests__col">
+            </motion.div>
+            <motion.div className="interests__col" 
+            variants={ANIMATION_VARIANTS.interests}>
               <span>💭</span>
               <h3 className="interests__header">
                 My Thoughts
@@ -73,30 +114,33 @@ const IndexPage = () => {
                 </svg>
 
               </a>
-            </div>
-          </div>
+            </motion.div>
+          </motion.div>
         </section>
         <section className="media-section">
-          <div className="heading-container">
-            <h2 className="header--primary">Photo Wall</h2>
-          </div>
           <PhotoWall />
         </section>
         <section className="speaking-section">
-          <div className="heading-container">
-            <h2 className="header--primary mt-1">Speaking</h2>
-          </div>
           <Video />
-          <div className="speaking-section__audio-players">
-            <div className="player">
+          <motion.div className="speaking-section__audio-players"
+          variants={ANIMATION_VARIANTS.audioPlayerContainer}
+          initial="hidden"
+          animate={audioPlayerControls}
+          ref={audioPlayerMotionRef}
+          >
+            <motion.div className="player"
+              variants={ANIMATION_VARIANTS.audioPlayerOne}
+            >
               <AudioPlayer
                 title="SXSW Panel"
                 src='https://www.mfiles.co.uk/mp3-downloads/Toccata-and-Fugue-Dm.mp3'
               />
               <p className="player__caption">SXSW Panel</p>
-            </div>
+            </motion.div>
             <div className="player__border"></div>
-            <div className="player player--reverse">
+            <motion.div className="player player--reverse"
+              variants={ANIMATION_VARIANTS.audioPlayerTwo}
+            >
               <AudioPlayer
                 title="Solana Hacker House Panel"
                 src='https://s3.us-west-2.amazonaws.com/secure.notion-static.com/8ab52cf3-0fe6-40a7-a380-c68c7e4dc710/Artists__Curators_in_the_Evolving_NFT_Landscape.mp3?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Credential=AKIAT73L2G45EIPT3X45%2F20220513%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20220513T223702Z&X-Amz-Expires=86400&X-Amz-Signature=415111c9601ae16ae4a1a2accb3f43806cf8bcca3d90bce74eb11f26030a8f8d&X-Amz-SignedHeaders=host&response-content-disposition=filename%20%3D%22Artists%2520%2526%2520Curators%2520in%2520the%2520Evolving%2520NFT%2520Landscape.mp3%22&x-id=GetObject'
@@ -104,28 +148,14 @@ const IndexPage = () => {
               <p className="player__caption">
                 Solana Hacker<br /> House Panel
               </p>
-            </div>
-          </div>
+            </motion.div>
+          </motion.div>
         </section>
         <div className="contact-press-container">
           <section className="press-section">
-            <div className="heading-container">
-              <h2 className="header--primary">Press</h2>
-            </div>
-            <ul className="press-links">
-              {PRESS_LINKS.map(article => {
-                return (
-                  <li key={article.id}>
-                    <a className="color-text" href={`${article.link}`}>{article.title}</a>
-                  </li>
-                )
-              })}
-            </ul>
+            <Press />
           </section>
           <section className="contact-section">
-            <div className="heading-container">
-              <h2 className="header--primary">Contact me</h2>
-            </div>
             <ContactForm />
             <div className="social-links-container">
               <SocialLinks otherClasses="social-icons--footer" />
