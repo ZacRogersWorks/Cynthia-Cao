@@ -13,6 +13,7 @@
   position: relative;
   display: flex;
   flex-direction: column;
+  margin-bottom: 1rem;
 
   &__error {
     display: flex;
@@ -33,7 +34,7 @@
     transition: all 150ms ease;
     border-width: 2px;
     background: none;
-
+    
   }
 
   :not(:last-child) {
@@ -51,7 +52,7 @@
     input+label {
       position: absolute;
       top: 12px;
-      color: #eee;
+      color: black;
       z-index: 5;
       padding: 0px 9px;
       transition: top 150ms ease;
@@ -73,7 +74,7 @@
     textarea+label {
       position: absolute;
       top: 3rem;
-      color: #eee;
+      color: black;
       z-index: 5;
       padding: 0px 9px;
       transition: top 210ms ease;
@@ -99,9 +100,10 @@
   }
 }
 
+
 @include mixins.md {
-  .contact-form {
-    margin-bottom: 2rem;
+  .form-control {
+    margin-bottom: 3rem;
   }
 }
 

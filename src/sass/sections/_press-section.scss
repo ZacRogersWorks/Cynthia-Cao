@@ -35,3 +35,15 @@
     }
 }
 
+@include mixins.md {
+    .press-links {
+        line-height: 1rem;
+        
+        li>a {
+            font-size: .75rem;
+        }
+            
+
+    }
+}
+
