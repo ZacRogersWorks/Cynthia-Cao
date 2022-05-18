@@ -1,3 +1,5 @@
+@use '../base/mixins';
+
 .social-links-container {
   width: 100%;
   display: flex;
@@ -5,7 +7,7 @@
 }
 
 .social-icons {
-  max-width: 165px;
+  max-width: 180px;
   margin: 1.25rem 0;
   border: 1px solid black;
   border-radius: 80%;
@@ -27,6 +29,9 @@
     width: 28px;
     height: 35px;
     transition: all 150ms ease;
+    margin: .5rem;
+    display: flex;
+    align-items: center;
 
     &:hover,
     &:focus {
@@ -36,8 +41,16 @@
   }
 
   svg[class^="svg"] {
-    width: 15px;
-    height: auto;
-    margin: 10px;
+    width: auto;
+    height: 20px;
+  }
+}
+
+@include mixins.md {
+  .social-icons--footer {
+    a {
+      width: 48px;
+      height: 48px;
+    }
   }
 }

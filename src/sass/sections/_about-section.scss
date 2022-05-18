@@ -27,16 +27,13 @@
   }
 }
 
+// About section breakpoints
 @include mixins.md {
+  .about { margin-top: 4rem;}
+
   .about-tagline {
     margin-top: 0;
     font-size: 2.5rem;
-  }
-}
-
-// About section breakpoints
-@include mixins.md {
-  .about-tagline {
     max-width: 90%;
   }
 }

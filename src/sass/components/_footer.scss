@@ -30,13 +30,7 @@ footer p {
 
 @include mixins.md {
     .footer-gradient-background {
-        height: 1500px;
-    }
-}
-
-@include mixins.lg {
-    .footer-gradient-background {
-        height: 1300px;
+        height: 1100px;
     }
 }
 

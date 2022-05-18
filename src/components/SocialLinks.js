@@ -15,9 +15,10 @@ function SocialLinks({ otherClasses }) {
       </a>
 
       <a aria-label="medium profile" href="#">
-        <svg className="svg-medium" xmlns="http://www.w3.org/2000/svg" width="32" height="25.321" viewBox="0 0 32 25.321">
-          <path id="Icon_metro-medium" data-name="Icon metro-medium" d="M34.571,25.91v3.732H23.106V25.91H25.5V9.374h-.107L19.785,29.642H15.446L9.91,9.374H9.767V25.91h2.411v3.732H2.571V25.91H3.8a1.176,1.176,0,0,0,.768-.348.95.95,0,0,0,.393-.67V9.16a1.087,1.087,0,0,0-.393-.714A1.119,1.119,0,0,0,3.8,8.053H2.571V4.321h12l3.946,14.661h.107L22.606,4.321H34.571V8.053H33.3a1.1,1.1,0,0,0-.732.393,1.087,1.087,0,0,0-.393.714V24.892a.955.955,0,0,0,.384.67,1.13,1.13,0,0,0,.741.348Z" transform="translate(-2.571 -4.321)" />
+        <svg id="medium-seeklogo.com_2" data-name="medium-seeklogo.com 2" xmlns="http://www.w3.org/2000/svg" width="35.215" height="20" viewBox="0 0 35.215 20">
+          <path id="Path_10" data-name="Path 10" d="M9.932,0A10,10,0,1,1,0,10,9.966,9.966,0,0,1,9.932,0ZM25.793.586C28.535.586,30.759,4.8,30.759,10h0c0,5.2-2.223,9.414-4.966,9.414S20.827,15.2,20.827,10,23.05.586,25.793.586Zm7.676.981c.964,0,1.747,3.776,1.747,8.434s-.782,8.434-1.747,8.434S31.723,14.658,31.723,10,32.5,1.566,33.469,1.566Z" transform="translate(0 0)" />
         </svg>
+
       </a>
       <a aria-label="LinkedIn Profile" href="#">
         <svg className="svg-linkedin" xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32">
