@@ -2,6 +2,7 @@ import * as React from "react"
 import '../sass/styles.scss';
 import { Helmet } from 'react-helmet'
 
+
 import PhotoWall from '../components/PhotoWall'
 import Video from '../components/Video'
 
@@ -32,7 +33,7 @@ const IndexPage = () => {
         <section className="about">
           <div className="about__sticky">
             <h1 className="header--primary">Hi, my name is <span className="rainbow">Cynthia</span>🦄</h1>
-            <p className="about-tagline">I am an artist, investor, entrepreneur that crazy builder in Web3 Music</p>
+            <p className="about-tagline">I am an artist, investor, entrepreneur <br />that crazy builder in Web3 Music</p>
           </div>
           <div className="about-row">
             <div className="about-text">
