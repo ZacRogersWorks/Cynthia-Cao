@@ -70,7 +70,7 @@ const PhotoWall = () => {
                     <StaticImage
                         alt="Cynthia Cao at Crypto Bahamas"
                         src="../images/cynthia-cao-at-crypto-bahamas.jpg"
-                        width={680}
+                        width={280}
                         className="photowall__img"
                     />
                 </motion.div>
@@ -83,7 +83,7 @@ const PhotoWall = () => {
                     <StaticImage
                         alt="Cynthia Cao at Draper University"
                         src="../images/cynthia-cao-at-draper-university.jpg"
-                        width={680}
+                        width={370}
                         className="photowall__img"
                     />
                 </motion.div>
@@ -96,7 +96,7 @@ const PhotoWall = () => {
                     <StaticImage
                         alt="Cynthia Cao at Red Light Management"
                         src="../images/cynthia-cao-at-red-light-management.jpg"
-                        width={680}
+                        width={460}
                         className="photowall__img"
                     />
                 </motion.div>
@@ -109,7 +109,7 @@ const PhotoWall = () => {
                     <StaticImage
                         alt="Cynthia Cao speaking"
                         src="../images/cynthia-cao-speaking.jpg"
-                        width={680}
+                        width={550}
                         className="photowall__img"
                     />
                 </motion.div>
@@ -123,7 +123,7 @@ const PhotoWall = () => {
                     <StaticImage
                         alt="Cynthia Cao"
                         src="../images/cynthia-cao.jpg"
-                        width={680}
+                        width={220}
                         className="photowall__img"
                     />
                 </motion.div>
