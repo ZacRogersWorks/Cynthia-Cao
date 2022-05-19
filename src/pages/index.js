@@ -42,7 +42,6 @@ const IndexPage = () => {
 
   return (
     <>
-      <div className="test-strip"></div>
       <Helmet>
         <meta charSet="utf-8" />
         <title>Cynthia Cao | Artist, Investor, Entrepreneur</title>
@@ -115,7 +114,7 @@ const IndexPage = () => {
               <h3 className="interests__header">
                 My Thoughts
               </h3>
-              <a href="https://medium.com/@ccisdreaming" className="color-text" target="_blank">
+              <a href="https://medium.com/@ccisdreaming" className="color-text" rel='noreferrer' target="_blank">
                 Read my Medium articles
                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 27 27">
                   <path id="Icon_material-open-in-new" data-name="Icon material-open-in-new" d="M28.5,28.5H7.5V7.5H18v-3H7.5a3,3,0,0,0-3,3v21a3,3,0,0,0,3,3h21a3.009,3.009,0,0,0,3-3V18h-3ZM21,4.5v3h5.385L11.64,22.245l2.115,2.115L28.5,9.615V15h3V4.5Z" transform="translate(-4.5 -4.5)" />
@@ -141,21 +140,9 @@ const IndexPage = () => {
             >
               <AudioPlayer
                 title="SXSW Panel"
-                src='#'
+                src='https://w.soundcloud.com/player/?url=https://soundcloud.com/ccisdreaming/artists-curators-in-the-evolving-nft-landscape&amp;'
               />
               <p className="player__caption">SXSW Panel</p>
-            </motion.div>
-            <div className="player__border"></div>
-            <motion.div className="player player--reverse"
-              variants={ANIMATION_VARIANTS.audioPlayerTwo}
-            >
-              <AudioPlayer
-                title="Solana Hacker House Panel"
-                src='https://s3.us-west-2.amazonaws.com/secure.notion-static.com/8ab52cf3-0fe6-40a7-a380-c68c7e4dc710/Artists__Curators_in_the_Evolving_NFT_Landscape.mp3?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Credential=AKIAT73L2G45EIPT3X45%2F20220513%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20220513T223702Z&X-Amz-Expires=86400&X-Amz-Signature=415111c9601ae16ae4a1a2accb3f43806cf8bcca3d90bce74eb11f26030a8f8d&X-Amz-SignedHeaders=host&response-content-disposition=filename%20%3D%22Artists%2520%2526%2520Curators%2520in%2520the%2520Evolving%2520NFT%2520Landscape.mp3%22&x-id=GetObject'
-              />
-              <p className="player__caption">
-                Solana Hacker<br /> House Panel
-              </p>
             </motion.div>
           </motion.div>
         </section>

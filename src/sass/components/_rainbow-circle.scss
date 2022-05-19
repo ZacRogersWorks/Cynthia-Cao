@@ -6,8 +6,8 @@ $rainbow-circle-bg-color: #fff;
 
 .rainbow-circle {
   position: relative;
-  width: 160px;
-  height: 160px;
+  width: 190px;
+  height: 190px;
   border-radius: 50%;
   background: $rainbow-circle-gradient;
   filter: blur(5px);
@@ -47,13 +47,13 @@ $rainbow-circle-bg-color: #fff;
 }
 
 .rainbow-circle__container {
-  width: 160px;
+  width: 190px;
   margin: 0.25rem 0;
   position: relative;
 }
 
 .rainbow-circle__inner {
-  max-width: 90px;
+  max-width: 110px;
   position: absolute;
   top: 50%;
   left: 50%;

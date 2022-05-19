@@ -23,38 +23,41 @@ const PhotoWall = () => {
     const ref4 = useRef(null)
     const ref5 = useRef(null)
 
-    const refs = [ref1, ref2, ref3, ref4, ref5]
 
-    function paralaxStuff(e) {
-        let index = 0, length = refs.length;
-        for (index; index < length; index++) {
-            let pos = window.scrollY * refs[index].current.dataset.rate;
 
-            if (refs[index].current.dataset.direction === 'vertical') {
-                refs[index].current.style.transform = `translate3d(0px, ${pos}px, 0px)`;
-            } else {
-                let posX = window.scrollY * refs[index].current.dataset.ratex;
-                let posY = window.scrollY * refs[index].current.dataset.ratey;
-                refs[index].current.style.transform = `translate3d(${posX}px, ${posY}px, 0px)`;
-            }
-
-        }
-    }
 
     useEffect(() => {
+        const refs = [ref1, ref2, ref3, ref4, ref5]
+
+        function paralaxStuff(e) {
+            let index = 0, length = refs.length;
+            for (index; index < length; index++) {
+                let pos = window.scrollY * refs[index].current.dataset.rate;
+
+                if (refs[index].current.dataset.direction === 'vertical') {
+                    refs[index].current.style.transform = `translate3d(0px, ${pos}px, 0px)`;
+                } else {
+                    let posX = window.scrollY * refs[index].current.dataset.ratex;
+                    let posY = window.scrollY * refs[index].current.dataset.ratey;
+                    refs[index].current.style.transform = `translate3d(${posX}px, ${posY}px, 0px)`;
+                }
+
+            }
+        }
+
         document.addEventListener('scroll', paralaxStuff)
 
         return () => {
             document.removeEventListener('scroll', paralaxStuff)
         }
-    }, [paralaxStuff])
+    }, [])
 
 
     return (
         <div>
             <motion.div className="heading-container" variants={ANIMATION_VARIANTS.photowall} ref={motionRef} initial="hidden" animate={controls}>
-            <h2 className="header--primary">Photo Wall</h2>
-          </motion.div>
+                <h2 className="header--primary">Photo Wall</h2>
+            </motion.div>
             <motion.div className="photowall__container"
                 ref={motionRef}
                 variants={ANIMATION_VARIANTS.photowall}

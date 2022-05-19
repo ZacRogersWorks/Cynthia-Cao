@@ -5,8 +5,8 @@ import MuteIcon from './Icons/MuteIcon'
 function MuteOrVolume({muted}) {
   return (
     <>
-      {muted ? <MuteIcon size={13} color="black" />
-      : <VolumeIcon size={13} color="black" />}
+      {muted ? <MuteIcon size={25} color="black" />
+      : <VolumeIcon size={25} color="black" />}
     </>
   )
 }

@@ -1,12 +1,14 @@
-import React, { useCallback, useEffect, useRef, useState } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import PropTypes from 'prop-types'
 import ProgressBar from './ProgressBar'
 import secondsToTime from './secondsToTime'
 import MuteOrVolume from './MuteOrVolume'
 import PlayOrPause from './PlayOrPause'
 
+import loadscript from 'load-script'
+
 function AudioPlayer({ src, title }) {
-  const ref = useRef(null);
+  const iframeRef = useRef(null);
 
   // State
   const [duration, setDuration] = useState(null)
@@ -15,105 +17,80 @@ function AudioPlayer({ src, title }) {
   const [isPlaying, setIsPlaying] = useState(false)
   const [isMuted, setIsMuted] = useState(false)
   const [isMediaError, setIsMediaError] = useState(false)
+  const [player, setPlayer] = useState(false)
+  const [volume, setVolume] = useState(50)
 
-  // AUDIO TAG EVENT HANDLERS
-  const handleDurationChange = () => {
-    if (ref.current) {
-      setDuration(ref.current.duration)
-    }
-  }
-
-  // Data Loading Handlers
-  const handleOnLoadStart = () => {
-    setIsMediaLoaded(false)
-  }
-
-  const handleOnCanPlay = () => {
-    setIsMediaLoaded(true)
-  }
-
-  const handleOnStalled = () => {
-    setIsMediaLoaded(false)
-  }
-
-  const handleOnError = () => {
-    setIsMediaError(true)
-  }
-
-
-  // Load song on mount
   useEffect(() => {
-    const audio = ref.current
-    if (audio) {
-      audio.src = src
-      audio.title = title
-      audio.load()
-    }
-  }, [src, title])
+    // initialize player and store reference in state
+    loadscript('https://w.soundcloud.com/player/api.js', () => {
 
-  /* Manage Play/Pause State */
-  const playAudioElement = useCallback(
-    function () {
-      const audio = ref.current
-      audio.play()
-        .then(_ => {
+      const player = window.SC.Widget(iframeRef.current)
+      setPlayer(player)
+      const { PLAY, PAUSE, PLAY_PROGRESS, ERROR, READY } = window.SC.Widget.Events
+
+      player.bind(READY, () => {
+        setIsMediaLoaded(true)
+        player.getDuration((duration) => {
+          setDuration(duration / 1000)
         })
-        .catch(console.error)
-    }, []
-  )
+      })
 
-  const pauseAudioElement = () => {
-    const audio = ref.current
-    if (audio.src && !audio.paused) {
-      audio.pause()
-    }
-  }
+      player.bind(PLAY, () => {
+        setIsPlaying(true)
+      })
 
-  useEffect(() => {
-    if (isMediaLoaded) {
-      if (isPlaying) {
-        playAudioElement()
-      } else {
-        pauseAudioElement()
-      }
-    }
+      player.bind(PAUSE, (playerIsPaused) => {
+        if (playerIsPaused) {
+          setIsPlaying(false)
+        }
+      })
 
-  }, [isPlaying, isMediaLoaded, playAudioElement])
+      player.bind(ERROR, (error) => {
+        console.log("ERROR ON SOUNDCLOUD", error)
+        setIsMediaError(true)
+      })
 
+      player.bind(PLAY_PROGRESS, (playProgress) => {
+        setCurrentTime(playProgress.currentPosition / 1000)
+      })
+    })
+
+  }, [])
 
   const handleSliderSeek = (e) => {
     const value = e.target.value
-    const audio = ref.current
-
-    if (audio) {
-      audio.currentTime = value
+    if (player) {
+      player.seekTo(value * 1000)
+      player.play()
       setCurrentTime(value)
     }
   }
 
-  const handleTimeUpdate = () => {
-    // This handler is called every 250ms
-    let currentTime = ref.current.currentTime
-    setCurrentTime(currentTime)
-  }
-
-  const toggleIsPlaying = () => setIsPlaying((prevState) => !prevState)
-  const toggleIsMuted = () => {
-    const audio = ref.current
-    if (audio) {
-      audio.muted = !audio.muted
-      setIsMuted((prevState) => !prevState)
+  const toggleIsPlaying = () => {
+    if (player) {
+      if (isPlaying) {
+        player.pause()
+        setIsPlaying(false)
+      } else {
+        player.play()
+        setIsPlaying(true)
+      }
     }
   }
 
-
-  const handleKeyBoard = (e, action) => {
-    if (e.code === 'Space') {
-      if (action === 'play') {
-        toggleIsPlaying()
-      } else if (action === 'mute') {
-        toggleIsMuted()
-      }
+  const toggleIsMuted = () => {
+    if (player) {
+      setIsMuted((prevState) => !prevState)
+      player.getVolume((currentVolume) => {
+        if (currentVolume > 0) {
+          setVolume(currentVolume)
+          setIsMuted(true)
+          player.setVolume(0)
+        } else {
+          setIsMuted(false)
+          player.setVolume(volume)
+        }
+      });
     }
   }
 
@@ -124,7 +101,6 @@ function AudioPlayer({ src, title }) {
         <div className='player__controls'>
           <div className='player__row'>
             <button
-              onKeyDown={(e) => handleKeyBoard(e, 'play')}
               onClick={toggleIsPlaying}
               tabIndex={0}
               className='player__btn'
@@ -132,7 +108,7 @@ function AudioPlayer({ src, title }) {
               <PlayOrPause playing={isPlaying} />
             </button>
             <div className='player__duration'>
-              {isMediaError ? 'error loading' : (
+              {isMediaError ? 'error' : (
                 isMediaLoaded ? (
                   <>
                     <span>{secondsToTime(currentTime)}</span>
@@ -153,7 +129,6 @@ function AudioPlayer({ src, title }) {
               max={duration || 0}
             />
             <button
-              onKeyDown={(e) => handleKeyBoard(e, 'mute')}
               onClick={toggleIsMuted}
               tabIndex={0}
               className='player__btn'
@@ -162,18 +137,8 @@ function AudioPlayer({ src, title }) {
             </button>
           </div>
         </div>
-        <audio
-          ref={ref}
-          preload="metadata"
-          onError={handleOnError}
-          onStalled={handleOnStalled}
-          onCanPlay={handleOnCanPlay}
-          onLoadStart={handleOnLoadStart}
-          onDurationChange={handleDurationChange}
-          onTimeUpdate={handleTimeUpdate}
-        >
-          <code>audio</code> unsupported.
-        </audio>
+        <iframe title='player' ref={iframeRef} className="hidden" width="100%" height="130" scrolling="no" frameBorder="no" allow="autoplay" src={src}>
+        </iframe>
       </div>
     </div>
   )
