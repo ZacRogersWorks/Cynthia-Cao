@@ -21,10 +21,9 @@ function AudioPlayer({ src, title }) {
   const [player, setPlayer] = useState(false)
   const [volume, setVolume] = useState(50)
 
-
-
     //Lazy load video embed
   const [container, containerInView] = useInView()
+
 
   useEffect(() => {
     // initialize player and store reference in state
