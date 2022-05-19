@@ -4,6 +4,7 @@ import ProgressBar from './ProgressBar'
 import secondsToTime from './secondsToTime'
 import MuteOrVolume from './MuteOrVolume'
 import PlayOrPause from './PlayOrPause'
+import { useInView } from 'react-intersection-observer'
 
 import loadscript from 'load-script'
 
@@ -23,38 +24,7 @@ function AudioPlayer({ src, title }) {
 
 
     //Lazy load video embed
-    const audioObserver = useRef(null);
-    const [showAudio, setShowAudio] = useState(false);
-
-    function onVideoIntersection(entries) {
-        if (!entries || entries.length <= 0) return
-
-        if (entries[0].isIntersecting) {
-            setShowAudio(true);
-            audioObserver.current.disconnect();
-        }
-    }
-
-    useEffect(() => {
-        audioObserver.current = new IntersectionObserver(onVideoIntersection, {
-            rootMargin: '100px 0px',
-            threshold: .25
-        })
-    }, [])
-
-    useEffect(() => {
-        if (window && 'IntersectionObserver' in window) {
-            if (iframeRef && iframeRef.current) {
-                audioObserver.current.observe(iframeRef.current)
-            }
-        } else {
-            setShowAudio(true)
-        }
-    }, [iframeRef])
-
-
-
-
+  const [container, containerInView] = useInView()
 
   useEffect(() => {
     // initialize player and store reference in state
@@ -91,7 +61,7 @@ function AudioPlayer({ src, title }) {
       })
     })
 
-  }, [setShowAudio])
+  }, [containerInView])
 
   const handleSliderSeek = (e) => {
     const value = e.target.value
@@ -131,7 +101,7 @@ function AudioPlayer({ src, title }) {
   }
 
   return (
-    <div className="rainbow-circle__container" ref={audioObserver}>
+    <div className="rainbow-circle__container" ref={container}>
       <div className="rainbow-circle"></div>
       <div className="rainbow-circle__inner">
         <div className='player__controls'>
@@ -173,8 +143,8 @@ function AudioPlayer({ src, title }) {
             </button>
           </div>
         </div>
-        <iframe title='player' ref={iframeRef} className="hidden" width="100%" height="130" scrolling="no" frameBorder="no" allow="autoplay" src={src}> 
-        </iframe>
+        {containerInView && <iframe title='player' ref={iframeRef} className="hidden" width="100%" height="130" scrolling="no" frameBorder="no" allow="autoplay" src={src}> 
+        </iframe>}
       </div>
     </div>
   )
