@@ -86,15 +86,13 @@ function AudioPlayer({ src, title }) {
 
   const toggleIsMuted = () => {
     if (player) {
-      setIsMuted((prevState) => !prevState)
       player.getVolume((currentVolume) => {
         if (currentVolume > 0) {
-          setVolume(currentVolume)
           setIsMuted(true)
           player.setVolume(0)
         } else {
           setIsMuted(false)
-          player.setVolume(volume)
+          player.setVolume(100)
         }
       });
     }
