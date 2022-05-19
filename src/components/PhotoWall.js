@@ -75,7 +75,7 @@ const PhotoWall = () => {
                         src="../images/cynthia-cao-at-crypto-bahamas.jpg"
                         width={280}
                         fadeIn={false}
-                        loading={eager}
+                        loading="lazy"
                         className="photowall__img"
                     />
                 </motion.div>
@@ -90,7 +90,7 @@ const PhotoWall = () => {
                         src="../images/cynthia-cao-at-draper-university.jpg"
                         width={370}
                         fadeIn={false}
-                        loading={eager}
+                        loading="lazy"
                         className="photowall__img"
                     />
                 </motion.div>
@@ -105,7 +105,7 @@ const PhotoWall = () => {
                         src="../images/cynthia-cao-at-red-light-management.jpg"
                         width={460}
                         fadeIn={false}
-                        loading={eager}
+                        loading="lazy"
                         className="photowall__img"
                     />
                 </motion.div>
@@ -119,6 +119,8 @@ const PhotoWall = () => {
                         alt="Cynthia Cao speaking"
                         src="../images/cynthia-cao-speaking.jpg"
                         width={550}
+                        fadeIn={false}
+                        loading="lazy"
                         className="photowall__img"
                     />
                 </motion.div>
@@ -134,7 +136,7 @@ const PhotoWall = () => {
                         src="../images/cynthia-cao.jpg"
                         width={220}
                         fadeIn={false}
-                        loading={eager}
+                        loading="lazy"
                         className="photowall__img"
                     />
                 </motion.div>
