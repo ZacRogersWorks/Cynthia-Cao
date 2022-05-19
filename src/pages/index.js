@@ -48,7 +48,7 @@ const IndexPage = () => {
         <meta name="description" content="
             As a music industry professional for 6 years, I have worked in event planning, artist management, and as a musician and artist myself. Now I am full-time dedicated to Starseed DAO, where I am building a parallel music industry on-chain in the metaverse.
       " />
-        <link rel="canonical" href="http://cynthiacao.xyz" />
+        <link rel="canonical" href="https://cynthiacao.xyz" />
         <meta name="robots" content="index, follow" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
 
