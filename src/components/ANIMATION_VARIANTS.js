@@ -2,7 +2,7 @@ export const ANIMATION_VARIANTS = {
 
     heading: {
         hidden: {
-            opacity: 0,
+            opacity: .1,
         y: '40px'
         },
         show: {
@@ -18,7 +18,7 @@ export const ANIMATION_VARIANTS = {
 
     about: {
         hidden: {
-            opacity: 0,
+            opacity: .1,
         y: '40px'
         },
         show: {
@@ -35,7 +35,7 @@ export const ANIMATION_VARIANTS = {
 
     interests: {
         hidden: {
-            opacity: 0,
+            opacity: .1,
         y: '40px'
         },
         show: {
