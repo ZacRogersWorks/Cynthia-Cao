@@ -3,7 +3,6 @@ import React from "react"
 const SuccessCard = ({ sending, sent, setSent }) => {
   const handleClose = () => {
     setSent(false)
-
   }
 
   return (
