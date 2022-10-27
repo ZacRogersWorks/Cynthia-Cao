@@ -27,6 +27,10 @@
   }
 }
 
+.mirror-logo {
+  margin-bottom: .75rem;
+}
+
 // About section breakpoints
 @include mixins.md {
   .about { margin-top: 4rem;}

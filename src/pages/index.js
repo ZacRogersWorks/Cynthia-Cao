@@ -4,6 +4,7 @@ import "../sass/styles.scss";
 import { Helmet } from "react-helmet";
 import { motion, useAnimation } from "framer-motion";
 import { useInView } from "react-intersection-observer";
+import { StaticImage } from "gatsby-plugin-image";
 
 // Lists
 import { ANIMATION_VARIANTS } from "../components/ANIMATION_VARIANTS";
@@ -87,8 +88,8 @@ const IndexPage = () => {
               className="about-tagline"
               variants={ANIMATION_VARIANTS.heading}
             >
-              I am an artist, investor, entrepreneur, <br />
-              & builder in the intersection of creator economy & Web3
+              I am an artist, investor, entrepreneur, <br />& builder in the
+              intersection of creator economy & Web3
             </motion.p>
           </motion.div>
           <motion.div
@@ -102,21 +103,28 @@ const IndexPage = () => {
               variants={ANIMATION_VARIANTS.about}
             >
               <p>
-              As an entertainment industry veteran, it's my dream to help all content creators to make a living by doing what they love to do.<br/>
-              That's why I started STARSEED, the operating system for the true creator economy, built-in Web3
-
+                As an entertainment industry veteran, it's my dream to help all
+                content creators to make a living by doing what they love to do.
+                <br />
+                That's why I started <a href="https://www.starseed.io/" target="_blank">STARSEED.io</a>, the operating system for the true
+                creator economy, built-in Web3
               </p>
 
               <p>
-              STARSEED is built upon one core thesis: We cannot talk about the Creator Economy without Creator Ownership. <br/>
-
-Through STARSEED, we aim to give freedom of distribution and monetization back to creators, so they can become self-sovereign creators and have control over their careers. 
-
+                STARSEED is built upon one core thesis: We cannot talk about the
+                Creator Economy without Creator Ownership. <br />
+                Through STARSEED, we aim to give freedom of distribution and
+                monetization back to creators, so they can become self-sovereign
+                creators and have control over their careers.
               </p>
 
               <p>
-              When I'm not working on STARSEED, I ponder upon the future of human evolution and the next step in human existence. <br/>
-              Love a fruitful conversation on topics in Singularity, Human-Computer Interface, Meditation, AI & Super Intelligence, Crypto Nation, Metaverse, mystic experiences, and Hyperstructure.
+                When I'm not working on STARSEED, I ponder upon the future of
+                human evolution and the next step in human existence. <br />
+                Love a fruitful conversation on topics in Singularity,
+                Human-Computer Interface, Meditation, AI & Super Intelligence,
+                Crypto Nation, Metaverse, mystic experiences, and
+                Hyperstructure.
               </p>
             </motion.div>
             <div className="col-spacer"></div>
@@ -151,15 +159,23 @@ Through STARSEED, we aim to give freedom of distribution and monetization back t
               className="interests__col"
               variants={ANIMATION_VARIANTS.interests}
             >
-              <span>💭</span>
-              <h3 className="interests__header">My Thoughts</h3>
+              <span className="mirror-logo">
+                <StaticImage
+                  src="../images/mirrorLogo.png"
+                  alt="CCIsDreaming Mirror.xyz"
+                  placeholder="blurred"
+                  layout="fixed"
+                  height={36}
+                />
+              </span>
+              <h3 className="interests__header">More About Me</h3>
               <a
-                href="https://medium.com/@ccisdreaming"
+                href="https://mirror.xyz/ccisdreaming.eth/JVy0vU5Fqthifinpdfjdyf_7WcsbsCgoslzidAbH8Ic"
                 className="color-text"
                 rel="noreferrer"
                 target="_blank"
               >
-                Read my Medium articles
+                Read my Mirror Story
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   width="16"
