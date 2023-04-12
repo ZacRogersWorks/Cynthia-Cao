@@ -116,15 +116,6 @@ const IndexPage = () => {
 When I'm not reshaping reality, catch me meditating, practicing yoga, exploring metaphysics, jamming to cool tunes, or working out. Let's co-create our metaverse destinies together! 🚀
 
               </p>
-
-              <p>
-                When I'm not working on STARSEED, I ponder upon the future of
-                human evolution and the next step in human existence. <br />
-                Love a fruitful conversation on topics in Singularity,
-                Human-Computer Interface, Meditation, AI & Super Intelligence,
-                Crypto Nation, Metaverse, mystic experiences, and
-                Hyperstructure.
-              </p>
             </motion.div>
             <div className="col-spacer"></div>
             <motion.aside className="quote" variants={ANIMATION_VARIANTS.about}>
