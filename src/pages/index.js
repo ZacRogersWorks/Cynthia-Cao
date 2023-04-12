@@ -107,7 +107,7 @@ const IndexPage = () => {
               Everything I do is to fulfill my mission in this lifetime on Earth, which is to help humanity transcend from 3D to 5D reality (aka the metaverse)
 
                 <br />
-                I created CCisDreaming, my metaverse alter ego, to embody the unlimited potential I didn't dare to embrace. She came back and empowered me to step into my mission and found STARSEED, helping others create their own Metaverse personas.
+                I created CCisDreaming, my metaverse alter ego, to embody the unlimited potential I didn't dare to embrace. She came back and empowered me to step into my mission and found <a href="https://www.starseed.io/" target="_blank">STARSEED</a>, helping others create their own Metaverse personas.
 
               </p>
 
