@@ -88,8 +88,9 @@ const IndexPage = () => {
               className="about-tagline"
               variants={ANIMATION_VARIANTS.heading}
             >
-              I am an artist, investor, entrepreneur, <br />& builder in the
-              intersection of creator economy & Web3
+              I am an artist, entrepreneur,
+ <br />& builder for the Open Metaverse
+
             </motion.p>
           </motion.div>
           <motion.div
@@ -103,19 +104,17 @@ const IndexPage = () => {
               variants={ANIMATION_VARIANTS.about}
             >
               <p>
-                As an entertainment industry veteran, it's my dream to help all
-                content creators to make a living by doing what they love to do.
+              Everything I do is to fulfill my mission in this lifetime on Earth, which is to help humanity transcend from 3D to 5D reality (aka the metaverse)
+
                 <br />
-                That's why I started <a href="https://www.starseed.io/" target="_blank">STARSEED.io</a>, the operating system for the true
-                creator economy, built-in Web3
+                I created CCisDreaming, my metaverse alter ego, to embody the unlimited potential I didn't dare to embrace. She came back and empowered me to step into my mission and found STARSEED, helping others create their own Metaverse personas.
+
               </p>
 
               <p>
-                STARSEED is built upon one core thesis: We cannot talk about the
-                Creator Economy without Creator Ownership. <br />
-                Through STARSEED, we aim to give freedom of distribution and
-                monetization back to creators, so they can become self-sovereign
-                creators and have control over their careers.
+                
+When I'm not reshaping reality, catch me meditating, practicing yoga, exploring metaphysics, jamming to cool tunes, or working out. Let's co-create our metaverse destinies together! 🚀
+
               </p>
 
               <p>
@@ -130,9 +129,7 @@ const IndexPage = () => {
             <div className="col-spacer"></div>
             <motion.aside className="quote" variants={ANIMATION_VARIANTS.about}>
               <p>
-                "My life mission is to help with earth's ascension and
-                humanity's collective consciousness to rise above to achieve
-                interstellar civilization."
+                "From physical to digital, from limited being to unlimited potential"
               </p>
               <SocialLinks />
             </motion.aside>
@@ -151,8 +148,7 @@ const IndexPage = () => {
               <span>✨</span>
               <h3 className="interests__header">My Interests</h3>
               <p>
-                Music, Blockchain, Metaverse, NFTs, DAOs, Defi, Artificial
-                Intelligence, Neuroscience
+              Blockchain, Digital Identity, Brain-Computer-Interface, Singularity, Artificial Intelligence, Quantum Physics, Metaphysics
               </p>
             </motion.div>
             <motion.div
@@ -161,21 +157,21 @@ const IndexPage = () => {
             >
               <span className="mirror-logo">
                 <StaticImage
-                  src="../images/mirrorLogo.png"
-                  alt="CCIsDreaming Mirror.xyz"
+                  src="../images/substack-icon.png"
+                  alt="CCIsDreaming Substack"
                   placeholder="blurred"
                   layout="fixed"
                   height={36}
                 />
               </span>
-              <h3 className="interests__header">More About Me</h3>
+              <h3 className="interests__header">My Thoughts</h3>
               <a
-                href="https://mirror.xyz/ccisdreaming.eth/JVy0vU5Fqthifinpdfjdyf_7WcsbsCgoslzidAbH8Ic"
+                href="https://ccisdreaming.substack.com/"
                 className="color-text"
                 rel="noreferrer"
                 target="_blank"
               >
-                Read my Mirror Story
+                Subscribe to my Substack
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   width="16"
